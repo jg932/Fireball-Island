@@ -11,10 +11,22 @@
 }
 
 .squares{
-  background-color: red;
+  background-color: brown;
   border: solid 2px black
 }
 
 .card-squares{
   background-color: green;
+}
+
+.treasure{
+  background-color: gold;
+}
+
+.starting{
+  background-color: purple;
+}
+
+.finish{
+  background-color: red;
 }
