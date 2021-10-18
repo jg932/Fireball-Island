@@ -1,32 +1,32 @@
 /*-------------------------------- Constants ---------------------------*/
-const cardDeck =[
-  {moveYou2 : moveYou()},
-  {moveYou2 : moveYou()},
-  {moveYou2 : moveYou()},
-  {moveYou2 : moveYou()},
-  {moveYou4 : moveYou()},
-  {moveYou4 : moveYou()},
-  {moveOther2 : moveOther()},
-  {moveOther2 : moveOther()},
-  {moveOther2 : moveOther()},
-  {moveOther2 : moveOther()},
-  {moveOther4 : moveOther()},
-  {moveOther4 : moveOther()},
-  {youLoseTurn : turnLoss()},
-  {youLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {takeAnotherTurn : takeAnotherTurn()},
-  {takeAnotherTurn : takeAnotherTurn()},
-  {goToTheTreasure : moveYou()},
-  {goToTheTreasure : moveYou()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
+// const cardDeck =[
+//   {moveYou2 : moveYou()},
+//   {moveYou2 : moveYou()},
+//   {moveYou2 : moveYou()},
+//   {moveYou2 : moveYou()},
+//   {moveYou4 : moveYou()},
+//   {moveYou4 : moveYou()},
+//   {moveOther2 : moveOther()},
+//   {moveOther2 : moveOther()},
+//   {moveOther2 : moveOther()},
+//   {moveOther2 : moveOther()},
+//   {moveOther4 : moveOther()},
+//   {moveOther4 : moveOther()},
+//   {youLoseTurn : turnLoss()},
+//   {youLoseTurn : turnLoss()},
+//   {otherLoseTurn : turnLoss()},
+//   {otherLoseTurn : turnLoss()},
+//   {takeAnotherTurn : takeAnotherTurn()},
+//   {takeAnotherTurn : takeAnotherTurn()},
+//   {goToTheTreasure : moveYou()},
+//   {goToTheTreasure : moveYou()},
+//   {fireball : fireball()},
+//   {fireball : fireball()},
+//   {fireball : fireball()},
+//   {fireball : fireball()},
+//   {fireball : fireball()},
 
-]
+// ]
 
 
 
@@ -41,6 +41,30 @@ pThreePosition = 0
 pFourPosition = 0
 let currentTurn
 
+playerOne = {
+  position : 0,
+  name : "player one",
+}
+
+playerTwo = {
+  position : 0,
+  name : "player two",
+}
+
+playerThree = {
+  position : 0,
+  name : "player three",
+}
+
+playerFour = {
+  position : 0,
+  name : "player four",
+}
+
+players = [playerOne, playerTwo, playerThree, playerFour]
+
+currentPlayer = playerOne
+// current player order? for index ++
 
 /*-------------------------------- Cached Elements ---------------------------*/
 const pOne = document.querySelector("#player1")
@@ -76,12 +100,13 @@ function turnUpdate (){
 function rollAndMove(){
   // console.log("here")
   rollResult = generateRoll();
-  document.querySelector(`#sq${(currentTurn-)}`).innerHTML = ""
-  currentTurn += rollResult
+  let activePlayerPosition = 0
+  document.querySelector(`#sq${activePlayerPosition}`).innerHTML = ""
+  activePlayerPosition += rollResult
    // console.log("here2")
   // whosTurn = "P1"
   diceDisplay.innerHTML = `${rollResult}`
-  document.querySelector(`#sq${currentTurn(index)}Position`).innerHTML = `${currentTurn}`
+  document.querySelector(`#sq${activePlayerPosition}`).innerHTML = `${currentTurn}`
   turnUpdate()
 }
 
