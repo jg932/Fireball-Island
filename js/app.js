@@ -6,7 +6,7 @@
 
 /*-------------------------------- Variables ---------------------------*/
 
-// whosTurnArray = ["pOne", "pTwo", "pThree", "pFour"]
+whosTurnArray = ["pOne", "pTwo", "pThree", "pFour"]
 rollResult = 0
 pOnePosition = 0
 
@@ -22,7 +22,7 @@ const diceDisplay = document.querySelector("#dice-display")
 // let whosTurnDisplay = document.querySelector("#whos-turn-display")
 
 /*-------------------------------- Event Listeners ---------------------------*/
-die.addEventListener("click", rollDice)
+die.addEventListener("click", rollAndMove)
 
 
 
@@ -30,19 +30,19 @@ die.addEventListener("click", rollDice)
 /*-------------------------------- Functions ---------------------------*/
 // init()
 function init(){
-  // whosTurnDisplay = whosTurnArray[0]
-  // whosTurnDisplay = whosTurnArray
+  whosTurnDisplay = whosTurnArray[0]
 }
 
 function whosTurn (){
-
+  whosTurn
 }
 
-function rollDice(){
+function rollAndMove(){
   console.log("here")
   rollResult = generateRoll();
+  document.querySelector(`#sq${pOnePosition}`).innerHTML = ""
   pOnePosition += rollResult
-  render()
+  renderPlayer()
 }
 
 function generateRoll(){
@@ -51,10 +51,10 @@ function generateRoll(){
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function render(){
+function renderPlayer(){
   // console.log("here2")
-  whosTurnDisplay = "P1"
+  whosTurn = "P1"
   diceDisplay.innerHTML = `${rollResult}`
-  document.querySelector(`#sq${pOnePosition}`).innerHTML = `${whosTurnDisplay}`
+  document.querySelector(`#sq${pOnePosition}`).innerHTML = `${whosTurn}`
 }
 
