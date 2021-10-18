@@ -1,0 +1,16 @@
+#gameboard{
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(10, 50px);
+  /* grid-template-rows: repeat(15, 10px); */
+  /* grid-template-columns: (2, 10px); */
+  /* gap: 2px; */
+  border: solid 2px black;
+  justify-content: center;
+  background-color: blue;
+}
+
+.squares{
+  background-color: red;
+  border: solid 2px black
+}
