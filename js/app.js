@@ -33,13 +33,11 @@
 
 /*-------------------------------- Variables ---------------------------*/
 
-whosTurnArray = ["pOne", "pTwo", "pThree", "pFour"]
+// whosTurnArray = ["playerOne", "playerTwo", "playerThree", "playerFour"]
 rollResult = 0
-pOnePosition = 0
-pTwoPosition = 0
-pThreePosition = 0
-pFourPosition = 0
 let currentTurn
+
+players = [playerOne, playerTwo, playerThree, playerFour]
 
 playerOne = {
   position : 0,
@@ -61,16 +59,12 @@ playerFour = {
   name : "player four",
 }
 
-players = [playerOne, playerTwo, playerThree, playerFour]
-
-currentPlayer = playerOne
-// current player order? for index ++
 
 /*-------------------------------- Cached Elements ---------------------------*/
-const pOne = document.querySelector("#player1")
-const pTwo = document.querySelector("#player2") 
-const pThree = document.querySelector("#player3")
-const pFour = document.querySelector("#player4")
+const playerOne = document.querySelector("#player1")
+const playerTwo = document.querySelector("#player2") 
+const playerThree = document.querySelector("#player3")
+const playerFour = document.querySelector("#player4")
 const die = document.querySelector("#dice")
 const diceDisplay = document.querySelector("#dice-display")
 const whosTurnDisplay = document.querySelector("#whos-turn-display")
@@ -90,17 +84,17 @@ function init(){
 
 function turnUpdate (){
   let index = 0;
-  currentTurn = whosTurnArray[index];
+  currentTurn = players[index];
   // console.log(currentTurn)
   index++;
-  currentTurn = whosTurnArray[index];
+  currentTurn = players[index];
   // console.log(currentTurn);
   }
 
 function rollAndMove(){
   // console.log("here")
   rollResult = generateRoll();
-  let activePlayerPosition = 0
+  let activePlayerPosition = currentTurn.player.position
   document.querySelector(`#sq${activePlayerPosition}`).innerHTML = ""
   activePlayerPosition += rollResult
    // console.log("here2")
@@ -117,7 +111,7 @@ function generateRoll(){
 }
 
 function drawCard(){
-  if (pOnePosition || pTwoPosition || pThreePosition || pFourPosition === cardSquaresDivs){
-    cards
+  if (playerOne.position || playerTwo.position || playerThree.position || playerFour.position === cardSquaresDivs){
+    cardNumberGenerator
   }
 }
