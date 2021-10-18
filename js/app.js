@@ -1,5 +1,32 @@
 /*-------------------------------- Constants ---------------------------*/
+const cardDeck =[
+  {moveYou2 : moveYou()},
+  {moveYou2 : moveYou()},
+  {moveYou2 : moveYou()},
+  {moveYou2 : moveYou()},
+  {moveYou4 : moveYou()},
+  {moveYou4 : moveYou()},
+  {moveOther2 : moveOther()},
+  {moveOther2 : moveOther()},
+  {moveOther2 : moveOther()},
+  {moveOther2 : moveOther()},
+  {moveOther4 : moveOther()},
+  {moveOther4 : moveOther()},
+  {youLoseTurn : turnLoss()},
+  {youLoseTurn : turnLoss()},
+  {otherLoseTurn : turnLoss()},
+  {otherLoseTurn : turnLoss()},
+  {takeAnotherTurn : takeAnotherTurn()},
+  {takeAnotherTurn : takeAnotherTurn()},
+  {goToTheTreasure : moveYou()},
+  {goToTheTreasure : moveYou()},
+  {fireball : fireball()},
+  {fireball : fireball()},
+  {fireball : fireball()},
+  {fireball : fireball()},
+  {fireball : fireball()},
 
+]
 
 
 
@@ -9,6 +36,9 @@
 whosTurnArray = ["pOne", "pTwo", "pThree", "pFour"]
 rollResult = 0
 pOnePosition = 0
+pTwoPosition = 0
+pThreePosition = 0
+pFourPosition = 0
 let currentTurn
 
 
@@ -20,6 +50,7 @@ const pFour = document.querySelector("#player4")
 const die = document.querySelector("#dice")
 const diceDisplay = document.querySelector("#dice-display")
 const whosTurnDisplay = document.querySelector("#whos-turn-display")
+const cardSquaresDivs = document.querySelector(".card-sqaures")
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollAndMove)
@@ -36,18 +67,22 @@ function init(){
 function turnUpdate (){
   let index = 0;
   currentTurn = whosTurnArray[index];
-  console.log(currentTurn)
+  // console.log(currentTurn)
   index++;
   currentTurn = whosTurnArray[index];
-  console.log(currentTurn);
+  // console.log(currentTurn);
   }
 
 function rollAndMove(){
-  console.log("here")
+  // console.log("here")
   rollResult = generateRoll();
-  document.querySelector(`#sq${pOnePosition}`).innerHTML = ""
-  pOnePosition += rollResult
-  renderPlayer()
+  document.querySelector(`#sq${(currentTurn-)}`).innerHTML = ""
+  currentTurn += rollResult
+   // console.log("here2")
+  // whosTurn = "P1"
+  diceDisplay.innerHTML = `${rollResult}`
+  document.querySelector(`#sq${currentTurn(index)}Position`).innerHTML = `${currentTurn}`
+  turnUpdate()
 }
 
 function generateRoll(){
@@ -56,10 +91,8 @@ function generateRoll(){
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function renderPlayer(){
-  // console.log("here2")
-  whosTurn = "P1"
-  diceDisplay.innerHTML = `${rollResult}`
-  document.querySelector(`#sq${pOnePosition}`).innerHTML = `${whosTurn}`
+function drawCard(){
+  if (pOnePosition || pTwoPosition || pThreePosition || pFourPosition === cardSquaresDivs){
+    cards
+  }
 }
-

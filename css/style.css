@@ -1,3 +1,18 @@
+.whole-page{
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+}
+
+body{
+  /* background-color: yellow; */
+  background-image: url("../images/background-image.jpeg");
+  background-image: stretch;
+}
+
 #gameboard{
   display: grid;
   grid-template-columns: repeat(5, 50px);
@@ -7,16 +22,16 @@
   /* gap: 2px; */
   border: solid 2px black;
   justify-content: center;
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 .squares{
-  background-color: brown;
+  background-color: rgba(92, 77, 52, 0.749);
   border: solid 2px black
 }
 
 .card-squares{
-  background-color: green;
+  background-color: rgba(54, 87, 54, 0.783);
 }
 
 .treasure{
