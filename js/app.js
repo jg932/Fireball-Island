@@ -73,7 +73,7 @@ playerOne = {
 playerTwo = {
   position : 0,
   name : "P2",
-  finished: "no"
+  finished: false
 }
 
 playerThree = {
@@ -122,6 +122,7 @@ resetButton.addEventListener("click", init)
 /*-------------------------------- Functions ---------------------------*/
 init()
 function init(){
+  die.addEventListener("click", rollDie)
   players.forEach(player => {
     player.position = 0
   });
@@ -159,14 +160,17 @@ function render() {
   welcomeSquare.innerHTML += "Welcome"
   treasureSquare.innerHTML += "Treasure"
   finishSquare.innerHTML += "Finish"
+  renderWin()
 }
 
 function renderWin(){
-  for (let i = 0; i < array.length; i++) {
-    if (player.finished === "yes"){
-      annoucementSquare.innerHTML += `${player.name} has escaped the island!`}
+  for (let i = 0; i < players.length; i++) {
+    const player = players[i]
+    if (player.position === 51){
+      annoucementSquare.innerHTML += `Congratulations ${player.name}! You have claimed the treasure and escaped the island!`
+      die.removeEventListener("click", rollDie)
     }
-}
+  } 
 
 function generateRoll(){
   min = Math.ceil(1);
@@ -180,25 +184,16 @@ function checkForFinish() {
   } else if (currentTurn.position === 47 && rollResult >= 5){
     currentTurn.position = 51
   } else if (currentTurn.position === 48 && rollResult >= 4){
-      currentTurn.position = 51
+    currentTurn.position = 51
   } else if (currentTurn.position === 49 && rollResult >= 3){
     currentTurn.position = 51
   } else if (currentTurn.position === 49 && rollResult >= 2){
     currentTurn.position = 51
   } else if (currentTurn.position === 50 && rollResult >= 1){
     currentTurn.position = 51
-  }    
-  checkforWin()
+  } 
 }
 
-function checkforWin(){
-  for (let i = 0; i < players.length; i++) {
-    if (this.position === 51){
-      player.finished = "yes"
-      renderWin()
-    }
-  }
-}
 
 function checkForCardSquare(){
   if (currentTurn.position === allCardSquares){
