@@ -61,28 +61,32 @@ const cardDeck =[
 /*-------------------------------- Variables ---------------------------*/
 
 // whosTurnArray = ["playerOne", "playerTwo", "playerThree", "playerFour"]
-rollResult = 0
+rollResult = null
 
 
 
 playerOne = {
   position : 0,
   name : "P1",
+  finished: "no"
 }
 
 playerTwo = {
   position : 0,
   name : "P2",
+  finished: "no"
 }
 
 playerThree = {
   position : 0,
   name : "P3",
+  finished: "no"
 }
 
 playerFour = {
   position : 0,
   name : "P4",
+  finished: "no"
 }
 
 players = [playerOne, playerTwo, playerThree, playerFour]
@@ -106,7 +110,7 @@ const treasureSquare = document.querySelector(".treasure")
 const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
 const nearFinishSquares = document.querySelectorAll(".near-finish")
-
+const annoucementSquare = document.querySelector("#annoucements")
 
 
 /*-------------------------------- Event Listeners ---------------------------*/
@@ -147,7 +151,7 @@ function rollDie(){
 
 function render() {
   allSquares.forEach((square) => square.innerHTML = (" "))
-  diceDisplay.innerHTML = "rollResult"
+  diceDisplay.innerHTML = rollResult
   whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerHTML += ` ${player.name}`})
@@ -156,10 +160,14 @@ function render() {
   finishSquare.innerHTML += "Finish"
 }
 
+function renderWin(){
+  for (let i = 0; i < array.length; i++) {
+    if (player.finished === "yes"){
+      annoucementSquare.innerHTML += `${player.name} has escaped the island!`}
+    }
+}
+
 function generateRoll(){
-  if (currentTurn.position === 51){
-    return
-  } else 
   min = Math.ceil(1);
   max = Math.floor(6);
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -179,6 +187,16 @@ function checkForFinish() {
   } else if (currentTurn.position === 50 && rollResult >= 1){
     currentTurn.position = 51
   }    
+  checkforWin()}
+
+function checkforWin(){
+  for (let i = 0; i < players.length; i++) {
+    if (this.position === 51){
+      player.finished = "yes"
+      renderWin()
+    }
+    
+  }
 }
 
 function drawCard(){
