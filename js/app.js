@@ -63,7 +63,6 @@ rollResult = 0
 let currentTurn
 
 
-
 playerOne = {
   position : 0,
   name : "player one",
@@ -100,7 +99,7 @@ const die = document.querySelector("#dice")
 const diceDisplay = document.querySelector("#dice-display")
 const whosTurnDisplay = document.querySelector("#whos-turn-display")
 const cardSquaresDivs = document.querySelector(".card-sqaures")
-const allSquares = document.querySelector(".squares")
+const allSquares = document.querySelectorAll(".squares")
 const treasureSquare = document.querySelector(".treasure")
 const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
@@ -141,7 +140,8 @@ function rollDie(){
 }
 
 function render() {
-  allSquares.innerHTML = ""
+  // console.log(allSquares)
+  allSquares.forEach((square) => innerHTML = (" "))
   diceDisplay.innerHTML = `${rollResult}`
   whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
   // document.querySelector(`#sq${currentTurn.position}`).innerHTML = ""
@@ -178,8 +178,8 @@ function cardNumberGenerator() {
   min = Math.ceil(0);
   max = Math.floor(51);
   cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
-}
+}}
 
-function checkforTreasureSquare(){
+// function checkforTreasureSquare(){
 
-}
+// }
