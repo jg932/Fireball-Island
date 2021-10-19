@@ -157,6 +157,9 @@ function render() {
 }
 
 function generateRoll(){
+  if (currentTurn.position === 51){
+    return
+  } else 
   min = Math.ceil(1);
   max = Math.floor(6);
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -174,11 +177,12 @@ function checkForFinish() {
   } else if (currentTurn.position === 49 && rollResult >= 2){
     currentTurn.position = 51
   } else if (currentTurn.position === 50 && rollResult >= 1){
-    currentTurn.position = 51}    
+    currentTurn.position = 51
+  }    
 }
 
 function drawCard(){
-  if (playerOne.position || playerTwo.position || playerThree.position || playerFour.position === allCardSquares){
+  if (currentTurn.position === allCardSquares){
     cardNumberGenerator()
     cardDeck[cardIndex]
 }

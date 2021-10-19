@@ -12,7 +12,7 @@ body{
   height: 100%;
   width: 100%; 
   background-image: url("../images/background-image.jpeg");
-
+  background-size: 150%;
 }
 
 #gameboard{
