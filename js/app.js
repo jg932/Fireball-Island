@@ -1,4 +1,6 @@
 /*-------------------------------- Constants ---------------------------*/
+cardIndex = 0
+let currentTurn
 const cardDeck =[
   {moveYouForwardOne : moveYou()},
   {moveYouForwardOne : moveYou()},
@@ -16,41 +18,41 @@ const cardDeck =[
   {moveYouBackTwo : moveYou()},
   {moveYouBackFour : moveYou()},
   {moveYouBackFour : moveYou()},
-  {moveOtherForwardOne : moveOther()},
-  {moveOtherForwardOne : moveOther()},
-  {moveOtherForwardTwo : moveOther()},
-  {moveOtherForwardTwo : moveOther()},
-  {moveOtherForwardTwo : moveOther()},
-  {moveOtherForwardTwo : moveOther()},
-  {moveOtherForwardFour : moveOther()},
-  {moveOtherForwardFour : moveOther()},
-  {moveOtherBackOne : moveOther()},
-  {moveOtherBackOne : moveOther()},
-  {moveOtherBackTwo : moveOther()},
-  {moveOtherBackTwo : moveOther()},
-  {moveOtherBackTwo : moveOther()},
-  {moveOtherBackTwo : moveOther()},
-  {moveOtherBackFour : moveOther()},
-  {moveOtherBackFour : moveOther()},
-  {youLoseTurn : turnLoss()},
-  {youLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {otherLoseTurn : turnLoss()},
-  {takeAnotherTurn : takeAnotherTurn()},
-  {takeAnotherTurn : takeAnotherTurn()},
-  {takeAnotherTurn : takeAnotherTurn()},
-  {goToTheTreasure : moveYou()},
-  {goToTheTreasure : moveYou()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
-  {fireball : fireball()},
+  // {moveOtherForwardOne : moveOther()},
+  // {moveOtherForwardOne : moveOther()},
+  // {moveOtherForwardTwo : moveOther()},
+  // {moveOtherForwardTwo : moveOther()},
+  // {moveOtherForwardTwo : moveOther()},
+  // {moveOtherForwardTwo : moveOther()},
+  // {moveOtherForwardFour : moveOther()},
+  // {moveOtherForwardFour : moveOther()},
+  // {moveOtherBackOne : moveOther()},
+  // {moveOtherBackOne : moveOther()},
+  // {moveOtherBackTwo : moveOther()},
+  // {moveOtherBackTwo : moveOther()},
+  // {moveOtherBackTwo : moveOther()},
+  // {moveOtherBackTwo : moveOther()},
+  // {moveOtherBackFour : moveOther()},
+  // {moveOtherBackFour : moveOther()},
+  // {youLoseTurn : turnLoss()},
+  // {youLoseTurn : turnLoss()},
+  // {otherLoseTurn : turnLoss()},
+  // {otherLoseTurn : turnLoss()},
+  // {otherLoseTurn : turnLoss()},
+  // {otherLoseTurn : turnLoss()},
+  // {takeAnotherTurn : takeAnotherTurn()},
+  // {takeAnotherTurn : takeAnotherTurn()},
+  // {takeAnotherTurn : takeAnotherTurn()},
+  // {goToTheTreasure : moveYou()},
+  // {goToTheTreasure : moveYou()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
+  // {fireball : fireball()},
 ]
 
 
@@ -60,7 +62,8 @@ const cardDeck =[
 
 // whosTurnArray = ["playerOne", "playerTwo", "playerThree", "playerFour"]
 rollResult = 0
-let currentTurn
+
+
 
 playerOne = {
   position : 0,
@@ -169,7 +172,6 @@ function generateRoll(){
 function drawCard(){
   if (playerOne.position || playerTwo.position || playerThree.position || playerFour.position === allCardSquares){
     cardNumberGenerator()
-    console.log(cardIndex)
     cardDeck[cardIndex]
 }
 
@@ -182,7 +184,8 @@ function cardNumberGenerator() {
 
 function moveYou(){
   if (cardIndex < 2){
-    currentTurn.position += 1;
+    `${currentTurn}`.position += 1;
+    // console.log(`${currentTurn}`.position)
   if (cardIndex > 2 && cardIndex < 6)
     currentTurn.position += 2;
   if (cardIndex > 6 && cardIndex < 8)
