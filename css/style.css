@@ -17,13 +17,14 @@ body{
 
 #gameboard{
   display: grid;
-  grid-template-columns: repeat(5, 55px);
-  grid-template-rows: repeat(11, 55px);
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(11, 50px);
   /* grid-template-rows: repeat(15, 10px); */
   /* grid-template-columns: (2, 10px); */
   /* gap: 2px; */
   border: solid 2px black;
   justify-content: center;
+  align-items: stretch;
   /* background-color: blue; */
 }
 
@@ -38,7 +39,11 @@ body{
 
 .squares{
   background-color: rgba(92, 77, 52, 0.749);
-  border: solid 2px black
+  border: solid 2px black;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-items:first baseline;
+  text-justify: auto;
 }
 
 .card-squares{
@@ -59,6 +64,3 @@ body{
   background-color: red;
 }
 
-#card-deck{
-  img
-}
