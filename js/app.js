@@ -60,7 +60,6 @@ const cardDeck =[
 
 /*-------------------------------- Variables ---------------------------*/
 
-// whosTurnArray = ["playerOne", "playerTwo", "playerThree", "playerFour"]
 rollResult = null
 
 
@@ -109,13 +108,14 @@ const allSquares = document.querySelectorAll(".squares")
 const treasureSquare = document.querySelector(".treasure")
 const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
-const nearFinishSquares = document.querySelectorAll(".near-finish")
+// const nearFinishSquares = document.querySelectorAll(".near-finish")
 const annoucementSquare = document.querySelector("#annoucements")
+const resetButton = document.querySelector("#reset-btn")
 
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
-
+resetButton.addEventListener("click", init)
 
 
 
@@ -126,6 +126,7 @@ function init(){
     player.position = 0
   });
   currentTurn = players[0]
+  rollResult = null
   render()
 }
 
@@ -144,8 +145,8 @@ function rollDie(){
   rollResult = generateRoll();
   currentTurn.position += rollResult
   checkForFinish()
+  checkForCardSquare()
   turnUpdate()
-  drawCard()
   render()
 }
 
@@ -187,7 +188,8 @@ function checkForFinish() {
   } else if (currentTurn.position === 50 && rollResult >= 1){
     currentTurn.position = 51
   }    
-  checkforWin()}
+  checkforWin()
+}
 
 function checkforWin(){
   for (let i = 0; i < players.length; i++) {
@@ -195,14 +197,14 @@ function checkforWin(){
       player.finished = "yes"
       renderWin()
     }
-    
   }
 }
 
-function drawCard(){
+function checkForCardSquare(){
   if (currentTurn.position === allCardSquares){
     cardNumberGenerator()
     cardDeck[cardIndex]
+
 }
 
 function cardNumberGenerator() {
