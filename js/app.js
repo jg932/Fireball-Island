@@ -145,7 +145,6 @@ function rollDie(){
   // console.log("here")
   rollResult = generateRoll();
   currentTurn.position += rollResult
-  checkForFinish()
   checkForCardSquare()
   turnUpdate()
   render()
@@ -155,8 +154,9 @@ function render() {
   allSquares.forEach((square) => square.innerHTML = (" "))
   diceDisplay.innerHTML = rollResult
   whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
+  checkForFinish()
   players.forEach(player => {
-    document.querySelector(`#sq${player.position}`).innerHTML += ` ${player.name}`})
+    document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
   welcomeSquare.innerHTML += "Welcome"
   treasureSquare.innerHTML += "Treasure"
   finishSquare.innerHTML += "Finish"
@@ -167,10 +167,11 @@ function renderWin(){
   for (let i = 0; i < players.length; i++) {
     const player = players[i]
     if (player.position === 51){
-      annoucementSquare.innerHTML += `Congratulations ${player.name}! You have claimed the treasure and escaped the island!`
+      window.alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`)
       die.removeEventListener("click", rollDie)
     }
   } 
+}
 
 function generateRoll(){
   min = Math.ceil(1);
@@ -187,7 +188,7 @@ function checkForFinish() {
     currentTurn.position = 51
   } else if (currentTurn.position === 49 && rollResult >= 3){
     currentTurn.position = 51
-  } else if (currentTurn.position === 49 && rollResult >= 2){
+  } else if (currentTurn.position === 50 && rollResult >= 2){
     currentTurn.position = 51
   } else if (currentTurn.position === 50 && rollResult >= 1){
     currentTurn.position = 51

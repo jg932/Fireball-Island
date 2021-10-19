@@ -52,11 +52,15 @@ body{
 
 .treasure{
   background-color: gold;
+  background-image: url("../images/gold-background.jpeg");
+  background-size: 50px;
   font-size: smaller;
 }
 
 .welcome{
   background-color: purple;
+  background-image: url("../images/welcome-background.jpeg");
+  background-size: 80px;
   font-size: smaller;
 }
 
