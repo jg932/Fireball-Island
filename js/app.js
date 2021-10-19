@@ -106,7 +106,7 @@ const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
 
 /*-------------------------------- Event Listeners ---------------------------*/
-die.addEventListener("click", rollAndMove)
+die.addEventListener("click", rollDie)
 
 
 
@@ -132,7 +132,7 @@ function turnUpdate (){
   render()
 }
 
-function rollAndMove(){
+function rollDie(){
   // console.log("here")
   rollResult = generateRoll();
   currentTurn.position += rollResult
@@ -147,10 +147,11 @@ function render() {
   // document.querySelector(`#sq${currentTurn.position}`).innerHTML = ""
   // document.querySelector(`#sq${currentTurn.position}`).innerHTML += currentTurn.name
   // console.log(`#sq${players[0].position}`)
-  players.forEach((player) => document.querySelector(`#sq${player.position}`).innerHTML += `${player.name}`)
+  players.forEach((player) => document.querySelector(`#sq${player.position}`).innerHTML = `${player.name}`)
   welcomeSquare.innerHTML = "Welcome"
   treasureSquare.innerHTML = "Treasure"
   finishSquare.innerHTML = "Finish"
+  drawCard()
 }
 
 //// create list of all squares
@@ -169,13 +170,14 @@ function generateRoll(){
 
 function drawCard(){
   if (playerOne.position || playerTwo.position || playerThree.position || playerFour.position === cardSquaresDivs){
-    function cardNumberGenerator(){ 
-    cardIndex = 0
-    min = Math.ceil(0);
-    max = Math.floor(51);
-    cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
-    }
-  }
+    cardNumberGenerator()
+}
+
+function cardNumberGenerator() {
+  cardIndex = 0
+  min = Math.ceil(0);
+  max = Math.floor(51);
+  cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function checkforTreasureSquare(){
