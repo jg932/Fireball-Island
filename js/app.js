@@ -2,22 +2,22 @@
 cardIndex = 0
 let currentTurn
 const cardDeck =[
-  {moveYouForwardOne : moveYou()},
-  {moveYouForwardOne : moveYou()},
-  {moveYouForwardTwo : moveYou()},
-  {moveYouForwardTwo : moveYou()},
-  {moveYouForwardTwo : moveYou()},
-  {moveYouForwardTwo : moveYou()},
-  {moveYouForwardFour : moveYou()},
-  {moveYouForwardFour : moveYou()},
-  {moveYouBackOne : moveYou()},
-  {moveYouBackOne : moveYou()},
-  {moveYouBackTwo : moveYou()},
-  {moveYouBackTwo : moveYou()},
-  {moveYouBackTwo : moveYou()},
-  {moveYouBackTwo : moveYou()},
-  {moveYouBackFour : moveYou()},
-  {moveYouBackFour : moveYou()},
+  // {moveYouForwardOne : moveYou()},
+  // {moveYouForwardOne : moveYou()},
+  // {moveYouForwardTwo : moveYou()},
+  // {moveYouForwardTwo : moveYou()},
+  // {moveYouForwardTwo : moveYou()},
+  // {moveYouForwardTwo : moveYou()},
+  // {moveYouForwardFour : moveYou()},
+  // {moveYouForwardFour : moveYou()},
+  // {moveYouBackOne : moveYou()},
+  // {moveYouBackOne : moveYou()},
+  // {moveYouBackTwo : moveYou()},
+  // {moveYouBackTwo : moveYou()},
+  // {moveYouBackTwo : moveYou()},
+  // {moveYouBackTwo : moveYou()},
+  // {moveYouBackFour : moveYou()},
+  // {moveYouBackFour : moveYou()},
   // {moveOtherForwardOne : moveOther()},
   // {moveOtherForwardOne : moveOther()},
   // {moveOtherForwardTwo : moveOther()},
@@ -67,22 +67,22 @@ rollResult = 0
 
 playerOne = {
   position : 0,
-  name : "player one",
+  name : "P1",
 }
 
 playerTwo = {
   position : 0,
-  name : "player two",
+  name : "P2",
 }
 
 playerThree = {
   position : 0,
-  name : "player three",
+  name : "P3",
 }
 
 playerFour = {
   position : 0,
-  name : "player four",
+  name : "P4",
 }
 
 players = [playerOne, playerTwo, playerThree, playerFour]
@@ -105,6 +105,9 @@ const allSquares = document.querySelectorAll(".squares")
 const treasureSquare = document.querySelector(".treasure")
 const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
+const nearFinishSquares = document.querySelectorAll(".near-finish")
+
+
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
@@ -136,37 +139,42 @@ function rollDie(){
   // console.log("here")
   rollResult = generateRoll();
   currentTurn.position += rollResult
+  checkForFinish()
   turnUpdate()
   drawCard()
   render()
 }
 
 function render() {
-  // console.log(allSquares)
   allSquares.forEach((square) => square.innerHTML = (" "))
   diceDisplay.innerHTML = "rollResult"
   whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
-  // document.querySelector(`#sq${currentTurn.position}`).innerHTML = ""
-  // document.querySelector(`#sq${currentTurn.position}`).innerHTML += currentTurn.name
-  // console.log(`#sq${players[0].position}`)
-  players.forEach((player) => document.querySelector(`#sq${player.position}`).innerHTML += `<br>${player.name}`)
+  players.forEach(player => {
+    document.querySelector(`#sq${player.position}`).innerHTML += ` ${player.name}`})
   welcomeSquare.innerHTML = "Welcome"
   treasureSquare.innerHTML = "Treasure"
   finishSquare.innerHTML = "Finish"
 }
 
-//// create list of all squares
-//// clear all squares at start of render function
-//// restore Welcome Treasure and Finish squares
-// then render looping through players array for all positions
-//append all positions instead of "innerHTML" (+=)
-
-
-
 function generateRoll(){
   min = Math.ceil(1);
   max = Math.floor(6);
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function checkForFinish() {
+  if (currentTurn.position === 46 && rollResult === 6){
+    currentTurn.position = 51}
+  if (currentTurn.position === 47 && rollResult >= 5){
+    currentTurn.position = 51}
+  if (currentTurn.position === 48 && rollResult >= 4){
+      currentTurn.position = 51}    
+  if (currentTurn.position === 49 && rollResult >= 3){
+    currentTurn.position = 51}    
+  if (currentTurn.position === 49 && rollResult >= 2){
+    currentTurn.position = 51}
+  if (currentTurn.position === 50 && rollResult >= 1){
+    currentTurn.position = 51}    
 }
 
 function drawCard(){
@@ -182,23 +190,22 @@ function cardNumberGenerator() {
   cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
 }}
 
-function moveYou(){
-  if (cardIndex < 2){
-    `${currentTurn}`.position += 1;
-    // console.log(`${currentTurn}`.position)
-  if (cardIndex > 2 && cardIndex < 6)
-    currentTurn.position += 2;
-  if (cardIndex > 6 && cardIndex < 8)
-    currentTurn.position += 4;
-  }
-  if (cardIndex > 8 && cardIndex < 10)
-    currentTurn.position -= 1;
-  if (cardIndex > 10 && cardIndex < 14)
-    currentTurn.position -= 2;
-  if (cardIndex > 14 && cardIndex < 16)
-    currentTurn.position -= 4;
-
-}
+// function moveYou(){
+//   if (cardIndex < 2){
+//     `${currentTurn}`.position += 1;
+//     console.log(`${currentTurn}`.position)
+//   if (cardIndex > 2 && cardIndex < 6)
+//     currentTurn.position += 2;
+//   if (cardIndex > 6 && cardIndex < 8)
+//     currentTurn.position += 4;
+//   }
+//   if (cardIndex > 8 && cardIndex < 10)
+//     currentTurn.position -= 1;
+//   if (cardIndex > 10 && cardIndex < 14)
+//     currentTurn.position -= 2;
+//   if (cardIndex > 14 && cardIndex < 16)
+//     currentTurn.position -= 4;
+// }
 
 // function checkforTreasureSquare(){
 
