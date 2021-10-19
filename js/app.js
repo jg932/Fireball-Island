@@ -151,9 +151,9 @@ function render() {
   whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerHTML += ` ${player.name}`})
-  welcomeSquare.innerHTML = "Welcome"
-  treasureSquare.innerHTML = "Treasure"
-  finishSquare.innerHTML = "Finish"
+  welcomeSquare.innerHTML += "Welcome"
+  treasureSquare.innerHTML += "Treasure"
+  finishSquare.innerHTML += "Finish"
 }
 
 function generateRoll(){
@@ -164,16 +164,16 @@ function generateRoll(){
 
 function checkForFinish() {
   if (currentTurn.position === 46 && rollResult === 6){
-    currentTurn.position = 51}
-  if (currentTurn.position === 47 && rollResult >= 5){
-    currentTurn.position = 51}
-  if (currentTurn.position === 48 && rollResult >= 4){
-      currentTurn.position = 51}    
-  if (currentTurn.position === 49 && rollResult >= 3){
-    currentTurn.position = 51}    
-  if (currentTurn.position === 49 && rollResult >= 2){
-    currentTurn.position = 51}
-  if (currentTurn.position === 50 && rollResult >= 1){
+    currentTurn.position = 51
+  } else if (currentTurn.position === 47 && rollResult >= 5){
+    currentTurn.position = 51
+  } else if (currentTurn.position === 48 && rollResult >= 4){
+      currentTurn.position = 51
+  } else if (currentTurn.position === 49 && rollResult >= 3){
+    currentTurn.position = 51
+  } else if (currentTurn.position === 49 && rollResult >= 2){
+    currentTurn.position = 51
+  } else if (currentTurn.position === 50 && rollResult >= 1){
     currentTurn.position = 51}    
 }
 
