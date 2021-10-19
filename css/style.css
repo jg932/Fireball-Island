@@ -59,12 +59,14 @@ body{
 
 .welcome{
   background-color: purple;
-  background-image: url("../images/welcome-background.jpeg");
-  background-size: 80px;
+  background-image: url("../images/beach-background.jpeg");
+  background-size: 60px;
   font-size: smaller;
 }
 
 .finish{
   background-color: red;
+  background-image: url("../images/welcome-background.jpeg");
+  background-size: 80px;
 }
 

@@ -145,21 +145,22 @@ function rollDie(){
   // console.log("here")
   rollResult = generateRoll();
   currentTurn.position += rollResult
-  checkForCardSquare()
+  // checkForCardSquare()
+  checkForFinish()
   turnUpdate()
   render()
 }
 
 function render() {
-  allSquares.forEach((square) => square.innerHTML = (" "))
-  diceDisplay.innerHTML = rollResult
-  whosTurnDisplay.innerHTML = `It is ${currentTurn.name}'s turn!`
-  checkForFinish()
+  allSquares.forEach((square) => square.innerText = (" "))
+  diceDisplay.innerText = rollResult
+  console.log(rollResult)
+  whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
-  welcomeSquare.innerHTML += "Welcome"
-  treasureSquare.innerHTML += "Treasure"
-  finishSquare.innerHTML += "Finish"
+  welcomeSquare.innerText += "Welcome"
+  treasureSquare.innerText += "Treasure"
+  finishSquare.innerText += "Finish"
   renderWin()
 }
 
@@ -167,7 +168,7 @@ function renderWin(){
   for (let i = 0; i < players.length; i++) {
     const player = players[i]
     if (player.position === 51){
-      window.alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`)
+      setTimeout(() => { alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`); }, 1000);
       die.removeEventListener("click", rollDie)
     }
   } 
@@ -180,19 +181,9 @@ function generateRoll(){
 }
 
 function checkForFinish() {
-  if (currentTurn.position === 46 && rollResult === 6){
+  if (currentTurn.position > 51){
     currentTurn.position = 51
-  } else if (currentTurn.position === 47 && rollResult >= 5){
-    currentTurn.position = 51
-  } else if (currentTurn.position === 48 && rollResult >= 4){
-    currentTurn.position = 51
-  } else if (currentTurn.position === 49 && rollResult >= 3){
-    currentTurn.position = 51
-  } else if (currentTurn.position === 50 && rollResult >= 2){
-    currentTurn.position = 51
-  } else if (currentTurn.position === 50 && rollResult >= 1){
-    currentTurn.position = 51
-  } 
+  }
 }
 
 
@@ -203,12 +194,12 @@ function checkForCardSquare(){
 
 }
 
-function cardNumberGenerator() {
-  cardIndex = 0
-  min = Math.ceil(0);
-  max = Math.floor(51);
-  cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
-}}
+// function cardNumberGenerator() {
+//   cardIndex = 0
+//   min = Math.ceil(0);
+//   max = Math.floor(51);
+//   cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
+// }}
 
 // function moveYou(){
 //   if (cardIndex < 2){
