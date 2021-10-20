@@ -2,40 +2,42 @@
 
 cardIndex = 0
 turnIndex = 0
+playerChoice = null
 let currentTurn
+
 const cardDeck =[
-  {name: "moveYouForwardOne", play : moveYou},
-  {name: "moveYouForwardOne", play : moveYou},
-  {name: "moveYouForwardTwo", play : moveYou},
-  {name: "moveYouForwardTwo", play : moveYou},
-  {name: "moveYouForwardTwo", play : moveYou},
-  {name: "moveYouForwardTwo", play : moveYou},
-  {name: "moveYouForwardFour", play : moveYou},
-  {name: "moveYouForwardFour", play : moveYou},
-  {name: "moveYouBackOne", play : moveYou},
-  {name: "moveYouBackOne", play : moveYou},
-  {name: "moveYouBackTwo", play : moveYou},
-  {name: "moveYouBackTwo", play : moveYou},
-  {name: "moveYouBackTwo", play : moveYou},
-  {name: "moveYouBackTwo", play : moveYou},
-  {name: "moveYouBackFour", play : moveYou},
-  {name: "moveYouBackFour", play : moveYou},
-  // {name: "moveOtherForwardOne", play : moveOther},
-  // {name: "moveOtherForwardOne", play : moveOther},
-  // {name: "moveOtherForwardTwo", play : moveOther},
-  // {name: "moveOtherForwardTwo", play : moveOther},
-  // {name: "moveOtherForwardTwo", play : moveOther},
-  // {name: "moveOtherForwardTwo", play : moveOther},
-  // {name: "moveOtherForwardFour", play : moveOther},
-  // {name: "moveOtherForwardFour", play : moveOther},
-  // {name: "moveOtherBackOne", play : moveOther},
-  // {name: "moveOtherBackOne", play : moveOther},
-  // {name: "moveOtherBackTwo", play : moveOther},
-  // {name: "moveOtherBackTwo", play : moveOther},
-  // {name: "moveOtherBackTwo", play : moveOther},
-  // {name: "moveOtherBackTwo", play : moveOther},
-  // {name: "moveOtherBackFour", play : moveOther},
-  // {name: "moveOtherBackFour", play : moveOther},
+  {name: "youPlusOne", play : moveYouOne},
+  {name: "youPlusOne", play : moveYouOne},
+  {name: "youPlusTwo", play : moveYouTwo},
+  {name: "youPlusTwo", play : moveYouTwo},
+  {name: "youPlusTwo", play : moveYouTwo},
+  {name: "youPlustwo", play : moveYouTwo},
+  {name: "youPlusFour", play : moveYouFour},
+  {name: "youPlusFour", play : moveYouFour},
+  {name: "youBackOne", play : moveBackOne},
+  {name: "youBackOne", play : moveBackOne},
+  {name: "youBackTwo", play : moveBackTwo},
+  {name: "youBackTwo", play : moveBackTwo},
+  {name: "youBackTwo", play : moveBackTwo},
+  {name: "youBackTwo", play : moveBackTwo},
+  {name: "youBackFour", play : moveBackFour},
+  {name: "youBackFour", play : moveBackFour},
+  {name: "moveOtherForwardOne", play : moveOtherOne},
+  {name: "moveOtherForwardOne", play : moveOtherOne},
+  {name: "moveOtherForwardTwo", play : moveOtherTwo},
+  {name: "moveOtherForwardTwo", play : moveOtherTwo},
+  {name: "moveOtherForwardTwo", play : moveOtherTwo},
+  {name: "moveOtherForwardTwo", play : moveOtherTwo},
+  {name: "moveOtherForwardFour", play : moveOtherFour},
+  {name: "moveOtherForwardFour", play : moveOtherFour},
+  {name: "moveOtherBackOne", play : moveOtherBackOne},
+  {name: "moveOtherBackOne", play : moveOtherBackOne},
+  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
+  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
+  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
+  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
+  {name: "moveOtherBackFour", play : moveOtherBackFour},
+  {name: "moveOtherBackFour", play : moveOtherBackFour},
   // {name: "youLoseTurn", play : turnLoss},
   // {name: "youLoseTurn", play : turnLoss},
   // {name: "otherLoseTurn", play : turnLoss},
@@ -202,22 +204,49 @@ function cardNumberGenerator() {
   cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function moveYou(){
-  if (cardIndex < 2){
-    `${currentTurn}`.position += 1;
-    console.log(`${currentTurn}`.position)
-  if (cardIndex > 2 && cardIndex < 6)
-    currentTurn.position += 2;
-  if (cardIndex > 6 && cardIndex < 8)
-    currentTurn.position += 4;
-  }
-  if (cardIndex > 8 && cardIndex < 10)
-    currentTurn.position -= 1;
-  if (cardIndex > 10 && cardIndex < 14)
-    currentTurn.position -= 2;
-  if (cardIndex > 14 && cardIndex < 16)
-    currentTurn.position -= 4;
+function moveYouOne(){
+  `${currentTurn}`.position += 1;
+  render()
 }
-function checkforTreasureSquare(){
 
-// }
+function moveYouTwo(){
+  `${currentTurn}`.position += 2;
+  render()
+}
+
+function moveYouFour(){
+  `${currentTurn}`.position += 4;
+  render()
+}
+
+function moveBackOne(){
+  `${currentTurn}`.position -= 1;
+  render()
+}
+
+function moveBackTwo(){
+  `${currentTurn}`.position -= 2;
+  render()
+}
+
+function moveBackFour(){
+  `${currentTurn}`.position -= 4;
+  render()
+}
+
+function moveOtherOne(){
+  randomOtherPlayer()
+}
+
+
+function randomOtherPlayer() {
+  playerChoice = null
+  min = Math.ceil(0);
+  max = Math.floor(3);
+  cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
+  if (playerChoice === currentTurn){
+    randomOtherPlayer()
+  } else {
+    return playerChoice
+  }
+}
