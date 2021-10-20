@@ -1,30 +1,25 @@
-.whole-page{
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
+
+body{
+  background-color: yellow;
   
 }
 
-body{
-  /* background-color: yellow; */
-  height: 100%;
-  width: 100%; 
-  background-image: url("../images/background-image-vertical.jpeg");
-  background-size: 150%;
+h1 {
+  font-size: 72px;
+  font-family: FlameTime;
+  background: -webkit-linear-gradient(rgb(255, 1, 1), rgb(255, 141, 2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #gameboard{
   display: grid;
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: repeat(11, 50px);
-  /* grid-template-rows: repeat(15, 10px); */
-  /* grid-template-columns: (2, 10px); */
-  /* gap: 2px; */
   border: solid 2px black;
   justify-content: center;
   align-items: stretch;
+  background-image: url("../images/background-image-vertical.jpeg");
   /* background-color: blue; */
 }
 
@@ -68,5 +63,9 @@ body{
   background-color: red;
   background-image: url("../images/welcome-background.jpeg");
   background-size: 80px;
+}
+
+#dice-display{
+  font-size: 30px;
 }
 

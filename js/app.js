@@ -149,7 +149,7 @@ function turnUpdate (){
     currentTurn.extraTurn = false
   } else if (currentTurn.loseTurn){
     currentTurn.loseTurn = false;
-    turnIndex += 2;
+    turnIndex++;
   } else if (turnIndex >= 3) {
     turnIndex = 0
   } else {
@@ -171,6 +171,7 @@ function rollDie(){
 function render() {
   allSquares.forEach((square) => square.innerText = (" "))
   diceDisplay.innerText = rollResult
+  console.log(currentTurn.name)
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})

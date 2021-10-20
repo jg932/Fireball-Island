@@ -8,8 +8,9 @@
   <script defer src="/js/app.js"></script>
   <title>Fireball Island</title>
 </head>
-<body class="whole-page">
-  <h1>Fireball Island</h1>
+<body>
+  <div id="background"></div>
+	<h1>Fireball Island</h1>
   <h2>Get the treasure and get off the island...also there are fireballs!</h2>
   
     <div id="player1" class="game-pieces">P1</div>
@@ -73,11 +74,16 @@
     <div id="sq51" class="squares finish">Finish!</div>
   </section>
   <section id="dice-and-cards">
-    <div id="dice">Roll Me</div>
+    <div id="dice">Roll Me </div>
+		<img src="/images/main-die-image.png" height="75px">
     <div id="dice-display"></div>
     <div id="card-deck"><img src="/images/card deck.jpeg" height="120px"></div>
     <div id="card-display"></div>
   </section>
+	<section id="winner-window">
+		<div id="winner-window"> </div>
+		<div id="sailing-away-animation"><img src="/animation/sailboat_6.gif" height="140px"></div>
+	</section>
   <button id="reset-btn" type="reset">Play Again</button>
 </body>
 </html>
