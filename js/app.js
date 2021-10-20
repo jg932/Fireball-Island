@@ -3,9 +3,10 @@
 cardIndex = 0
 turnIndex = 0
 playerChoice = null
-let currentTurn
+
 
 const cardDeck =[
+  {name: "takeAnotherTurn", play : takeAnotherTurn},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusTwo", play : moveYouTwo},
@@ -93,6 +94,9 @@ playerFour = {
 }
 
 players = [playerOne, playerTwo, playerThree, playerFour]
+currentTurn = players[0]
+
+
 
 // playerOneMissTurn = [playerTwo, playerThree, playerFour, playerTwo, playerThree, playerFour, RESUME?]
 // playerTwoMissTurn = [playerThree, playerFour, playerOne, playerThree, playerFour, playerOne, playerTwo, playerThree, playerFour, RESUME?]
@@ -125,6 +129,7 @@ resetButton.addEventListener("click", init)
 
 /*-------------------------------- Functions ---------------------------*/
 init()
+
 function init(){
   die.addEventListener("click", rollDie)
   players.forEach(player => {
@@ -136,17 +141,19 @@ function init(){
 }
 
 function turnUpdate (){
-  if (turnIndex >= 3) {
+  console.log(currentTurn.extraTurn)
+  if (currentTurn.extraTurn){
+    currentTurn.extraTurn = false
+  } else if (turnIndex >= 3) {
     turnIndex = 0
   } else {
     turnIndex++
   }
   currentTurn = players[turnIndex];
-  render()
+  // render()
 }
 
 function rollDie(){
-  // console.log("here")
   rollResult = generateRoll();
   currentTurn.position += rollResult
   checkForFinish()
@@ -158,10 +165,6 @@ function rollDie(){
 function render() {
   allSquares.forEach((square) => square.innerText = (" "))
   diceDisplay.innerText = rollResult
-  for (let i = 0; i < players.length; i++) {
-    if (extraTurn = true){
-  currentTurn = i}
-  }
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
@@ -192,13 +195,19 @@ function checkForFinish() {
     currentTurn.position = 51
   }
 }
+// console.log(players[currentTurn].position)
+// console.log(document.querySelector(`sq${players[currentTurn].position}`))
 
 function checkForCardSquare(){
-  const currentSquare = (document.querySelector(`#sq${currentTurn.position}`));
-  if (currentSquare.classList.contains("card-squares"))
+  let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
+  console.log(currentSquare.classList)
+  if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    let currentCard = cardDeck[cardIndex]
+    let currentCard = cardDeck[0]
+    console.log(currentCard)
     currentCard.play()
+  } else { render()
+  }
 }
 
 function cardNumberGenerator() {
@@ -261,6 +270,7 @@ function moveToTreasure(){
 }
 
 function takeAnotherTurn() {
+  console.log("here")
   currentTurn.extraTurn = true
 }
 
