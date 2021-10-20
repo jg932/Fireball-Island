@@ -6,7 +6,6 @@ playerChoice = null
 
 
 const cardDeck =[
-  {name: "takeAnotherTurn", play : takeAnotherTurn},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusTwo", play : moveYouTwo},
@@ -141,7 +140,6 @@ function init(){
 }
 
 function turnUpdate (){
-  console.log(currentTurn.extraTurn)
   if (currentTurn.extraTurn){
     currentTurn.extraTurn = false
   } else if (turnIndex >= 3) {
@@ -200,7 +198,6 @@ function checkForFinish() {
 
 function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
-  console.log(currentSquare.classList)
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
     let currentCard = cardDeck[0]
@@ -218,27 +215,27 @@ function cardNumberGenerator() {
 }
 
 function moveYouOne(){
-  `${currentTurn}`.position += 1;
+  currentTurn.position += 1;
 }
 
 function moveYouTwo(){
-  `${currentTurn}`.position += 2;
+  currentTurn.position += 2;
 }
 
 function moveYouFour(){
-  `${currentTurn}`.position += 4;
+  currentTurn.position += 4;
 }
 
 function moveBackOne(){
-  `${currentTurn}`.position -= 1;
+  currentTurn.position -= 1;
 }
 
 function moveBackTwo(){
-  `${currentTurn}`.position -= 2;
+  currentTurn.position -= 2;
 }
 
 function moveBackFour(){
-  `${currentTurn}`.position -= 4;
+  currentTurn.position -= 4;
 }
 
 function moveOtherOne(){
@@ -262,7 +259,7 @@ function moveOtherBackTwo(){
 }
 
 function moveOtherBackFour(){
-  players[randomOtherPlayer()].position - 2
+  players[randomOtherPlayer()].position - 4
 }
 
 function moveToTreasure(){
