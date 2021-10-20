@@ -44,11 +44,11 @@ const cardDeck =[
   // {name: "otherLoseTurn", play : turnLoss},
   // {name: "otherLoseTurn", play : turnLoss},
   // {name: "otherLoseTurn", play : turnLoss},
-  // {name: "takeAnotherTurn", play : takeAnotherTurn},
-  // {name: "takeAnotherTurn", play : takeAnotherTurn},
-  // {name: "takeAnotherTurn", play : takeAnotherTurn},
-  // {name: "goToTheTreasure", play : moveYou},
-  // {name: "goToTheTreasure", play : moveYou},
+  {name: "takeAnotherTurn", play : takeAnotherTurn},
+  {name: "takeAnotherTurn", play : takeAnotherTurn},
+  {name: "takeAnotherTurn", play : takeAnotherTurn},
+  {name: "goToTheTreasure", play : moveToTreasure},
+  {name: "goToTheTreasure", play : moveToTreasure},
   // {name: "fireball", play : fireball},
   // {name: "fireball", play : fireball},
   // {name: "fireball", play : fireball},
@@ -71,25 +71,25 @@ rollResult = null
 playerOne = {
   position : 0,
   name : "P1",
-  finished: "no"
+  extraTurn : false
 }
 
 playerTwo = {
   position : 0,
   name : "P2",
-  finished: false
+  extraTurn: false
 }
 
 playerThree = {
   position : 0,
   name : "P3",
-  finished: "no"
+  extraTurn: false
 }
 
 playerFour = {
   position : 0,
   name : "P4",
-  finished: "no"
+  extraTurn: false
 }
 
 players = [playerOne, playerTwo, playerThree, playerFour]
@@ -158,6 +158,10 @@ function rollDie(){
 function render() {
   allSquares.forEach((square) => square.innerText = (" "))
   diceDisplay.innerText = rollResult
+  for (let i = 0; i < players.length; i++) {
+    if (extraTurn = true){
+  currentTurn = i}
+  }
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
@@ -206,38 +210,59 @@ function cardNumberGenerator() {
 
 function moveYouOne(){
   `${currentTurn}`.position += 1;
-  render()
 }
 
 function moveYouTwo(){
   `${currentTurn}`.position += 2;
-  render()
 }
 
 function moveYouFour(){
   `${currentTurn}`.position += 4;
-  render()
 }
 
 function moveBackOne(){
   `${currentTurn}`.position -= 1;
-  render()
 }
 
 function moveBackTwo(){
   `${currentTurn}`.position -= 2;
-  render()
 }
 
 function moveBackFour(){
   `${currentTurn}`.position -= 4;
-  render()
 }
 
 function moveOtherOne(){
-  randomOtherPlayer()
+  players[randomOtherPlayer()].position + 1
 }
 
+function moveOtherTwo(){
+  players[randomOtherPlayer()].position + 2
+}
+
+function moveOtherFour(){
+  players[randomOtherPlayer()].position + 4
+}
+
+function moveOtherBackOne(){
+  players[randomOtherPlayer()].position - 1
+}
+
+function moveOtherBackTwo(){
+  players[randomOtherPlayer()].position - 2
+}
+
+function moveOtherBackFour(){
+  players[randomOtherPlayer()].position - 2
+}
+
+function moveToTreasure(){
+  currentTurn.position = 26
+}
+
+function takeAnotherTurn() {
+  currentTurn.extraTurn = true
+}
 
 function randomOtherPlayer() {
   playerChoice = null
