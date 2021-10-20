@@ -6,6 +6,7 @@ playerChoice = null
 
 
 const cardDeck =[
+  {name: "youLoseTurn", play : youLoseTurn},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusTwo", play : moveYouTwo},
@@ -38,8 +39,8 @@ const cardDeck =[
   {name: "moveOtherBackTwo", play : moveOtherBackTwo},
   {name: "moveOtherBackFour", play : moveOtherBackFour},
   {name: "moveOtherBackFour", play : moveOtherBackFour},
-  // {name: "youLoseTurn", play : turnLoss},
-  // {name: "youLoseTurn", play : turnLoss},
+  {name: "youLoseTurn", play : youLoseTurn},
+  {name: "youLoseTurn", play : youLoseTurn},
   // {name: "otherLoseTurn", play : turnLoss},
   // {name: "otherLoseTurn", play : turnLoss},
   // {name: "otherLoseTurn", play : turnLoss},
@@ -71,25 +72,29 @@ rollResult = null
 playerOne = {
   position : 0,
   name : "P1",
-  extraTurn : false
+  extraTurn : false,
+  loseTurn : false,
 }
 
 playerTwo = {
   position : 0,
   name : "P2",
-  extraTurn: false
+  extraTurn: false,
+  loseTurn : false,
 }
 
 playerThree = {
   position : 0,
   name : "P3",
-  extraTurn: false
+  extraTurn: false,
+  loseTurn : false,
 }
 
 playerFour = {
   position : 0,
   name : "P4",
-  extraTurn: false
+  extraTurn: false, 
+  loseTurn : false,
 }
 
 players = [playerOne, playerTwo, playerThree, playerFour]
@@ -142,6 +147,9 @@ function init(){
 function turnUpdate (){
   if (currentTurn.extraTurn){
     currentTurn.extraTurn = false
+  } else if (currentTurn.loseTurn){
+    currentTurn.loseTurn = false;
+    turnIndex += 2;
   } else if (turnIndex >= 3) {
     turnIndex = 0
   } else {
@@ -267,8 +275,11 @@ function moveToTreasure(){
 }
 
 function takeAnotherTurn() {
-  console.log("here")
   currentTurn.extraTurn = true
+}
+
+function youLoseTurn() {
+  currentTurn.loseTurn = true
 }
 
 function randomOtherPlayer() {
