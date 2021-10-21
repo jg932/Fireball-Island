@@ -3,61 +3,61 @@
 cardIndex = 0
 turnIndex = 0
 playerChoice = null
-
+currentCard = null
 
 const cardDeck =[
-  {name: "fireball", play : fireball},
-  {name: "youPlusOne", play : moveYouOne},
-  {name: "youPlusOne", play : moveYouOne},
-  {name: "youPlusTwo", play : moveYouTwo},
-  {name: "youPlusTwo", play : moveYouTwo},
-  {name: "youPlusTwo", play : moveYouTwo},
-  {name: "youPlustwo", play : moveYouTwo},
-  {name: "youPlusFour", play : moveYouFour},
-  {name: "youPlusFour", play : moveYouFour},
-  {name: "youBackOne", play : moveBackOne},
-  {name: "youBackOne", play : moveBackOne},
-  {name: "youBackTwo", play : moveBackTwo},
-  {name: "youBackTwo", play : moveBackTwo},
-  {name: "youBackTwo", play : moveBackTwo},
-  {name: "youBackTwo", play : moveBackTwo},
-  {name: "youBackFour", play : moveBackFour},
-  {name: "youBackFour", play : moveBackFour},
-  {name: "moveOtherForwardOne", play : moveOtherOne},
-  {name: "moveOtherForwardOne", play : moveOtherOne},
-  {name: "moveOtherForwardTwo", play : moveOtherTwo},
-  {name: "moveOtherForwardTwo", play : moveOtherTwo},
-  {name: "moveOtherForwardTwo", play : moveOtherTwo},
-  {name: "moveOtherForwardTwo", play : moveOtherTwo},
-  {name: "moveOtherForwardFour", play : moveOtherFour},
-  {name: "moveOtherForwardFour", play : moveOtherFour},
-  {name: "moveOtherBackOne", play : moveOtherBackOne},
-  {name: "moveOtherBackOne", play : moveOtherBackOne},
-  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
-  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
-  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
-  {name: "moveOtherBackTwo", play : moveOtherBackTwo},
-  {name: "moveOtherBackFour", play : moveOtherBackFour},
-  {name: "moveOtherBackFour", play : moveOtherBackFour},
-  {name: "skipNextPlayer", play : skipNextPlayer},
-  {name: "skipNextPlayer", play : skipNextPlayer},
-  {name: "skipNextPlayer", play : skipNextPlayer},
-  {name: "skipNextPlayer", play : skipNextPlayer},
-  {name: "takeAnotherTurn", play : takeAnotherTurn},
-  {name: "takeAnotherTurn", play : takeAnotherTurn},
-  {name: "takeAnotherTurn", play : takeAnotherTurn},
-  {name: "goToTheTreasure", play : moveToTreasure},
-  {name: "goToTheTreasure", play : moveToTreasure},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
-  {name: "fireball", play : fireball},
+  {name: "Fireball", play : fireball},
+  {name: "You Move Forward One Space", play : moveYouOne},
+  {name: "You Move Forward One Space", play : moveYouOne},
+  {name: "You Move Forward Two Spaces", play : moveYouTwo},
+  {name: "You Move Forward Two Spaces", play : moveYouTwo},
+  {name: "You Move Forward Two Spaces", play : moveYouTwo},
+  {name: "You Move Forward Two Spaces", play : moveYouTwo},
+  {name: "You Move Forward Four Spaces", play : moveYouFour},
+  {name: "You Move Forward Four Spaces", play : moveYouFour},
+  {name: "You Move Back One Space", play : moveBackOne},
+  {name: "You Move Back One Space", play : moveBackOne},
+  {name: "You Move Back Two Spaces", play : moveBackTwo},
+  {name: "You Move Back Two Spaces", play : moveBackTwo},
+  {name: "You Move Back Two Spaces", play : moveBackTwo},
+  {name: "You Move Back Two Spaces", play : moveBackTwo},
+  {name: "You Move Back Four Spaces", play : moveBackFour},
+  {name: "You Move Back Four Spaces", play : moveBackFour},
+  {name: "Move a random player Forward One Space", play : moveOtherOne},
+  {name: "Move a random player Forward One Space", play : moveOtherOne},
+  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
+  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
+  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
+  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
+  {name: "Move a random player Forward Four Spaces", play : moveOtherFour},
+  {name: "Move a random player Forward Four Spaces", play : moveOtherFour},
+  {name: "Move a random player Back One Space", play : moveOtherBackOne},
+  {name: "Move a random player Back One Space", play : moveOtherBackOne},
+  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
+  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
+  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
+  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
+  {name: "Move a random player Back Four Spaces", play : moveOtherBackFour},
+  {name: "Move a random player Back Four Spaces", play : moveOtherBackFour},
+  {name: "Skip the next player's turn", play : skipNextPlayer},
+  {name: "Skip the next player's turn", play : skipNextPlayer},
+  {name: "Skip the next player's turn", play : skipNextPlayer},
+  {name: "Skip the next player's turn", play : skipNextPlayer},
+  {name: "Roll again!", play : takeAnotherTurn},
+  {name: "Roll again!", play : takeAnotherTurn},
+  {name: "Roll again!", play : takeAnotherTurn},
+  {name: "Move immediately to the Treasure", play : moveToTreasure},
+  {name: "Move immediately to the Treasure", play : moveToTreasure},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
+  {name: "Fireball!", play : fireball},
 ]
 
 
@@ -66,7 +66,6 @@ const cardDeck =[
 /*-------------------------------- Variables ---------------------------*/
 
 rollResult = null
-
 
 
 playerOne = {
@@ -122,6 +121,7 @@ const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
 // const nearFinishSquares = document.querySelectorAll(".near-finish")
 const annoucementSquare = document.querySelector("#annoucements")
+const cardDisplay = document.querySelector("#card-display")
 const resetButton = document.querySelector("#reset-btn")
 
 
@@ -169,15 +169,17 @@ function rollDie(){
 
 function render() {
   allSquares.forEach((square) => square.innerText = (" "))
+  welcomeSquare.innerText += "Welcome\n"
+  treasureSquare.innerText += "Treasure\n"
+  finishSquare.innerText += "Finish\n"
   diceDisplay.innerText = rollResult
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
-    document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
-  welcomeSquare.innerText += "Welcome"
-  treasureSquare.innerText += "Treasure"
-  finishSquare.innerText += "Finish"
+    document.querySelector(`#sq${player.position}`).innerHTML += ` <span id="${player.name}">${player.name} </span>`})
   renderWin()
 }
+
+
 
 function renderWin(){
   for (let i = 0; i < players.length; i++) {
@@ -200,18 +202,21 @@ function checkForFinish() {
     currentTurn.position = 51
   }
 }
-// console.log(players[currentTurn].position)
-// console.log(document.querySelector(`sq${players[currentTurn].position}`))
 
 function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
     let currentCard = cardDeck[0]
-    console.log(currentCard)
+    renderCard()
     currentCard.play()
-  } else { render()
+  } else { render();
   }
+}
+
+function renderCard(){
+  console.log(currentCard)
+  cardDisplay.innerText = (`${currentCard.name}`)
 }
 
 function cardNumberGenerator() {
@@ -298,6 +303,4 @@ function fireball(){
   max = Math.floor(4);
   randomPlayerVariable = Math.floor(Math.random() * (max - min + 1) + min)
   players[randomPlayerVariable].position - 6
-  console.log("here")
-  console.log(randomPlayerVariable)
 }

@@ -1,6 +1,6 @@
 
 body{
-  background-color: blue;
+  background-color: rgb(47, 47, 250);
   
 }
 
@@ -18,11 +18,13 @@ h2 {
 }
 
 #gameboard{
+  width: 250px;
   display: grid;
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: repeat(11, 50px);
   border: solid 2px black;
   justify-content: center;
+  padding: 25px;
   background-image: url("../images/background-image-vertical.jpeg");
   background-size: cover;
   font-weight: bold;
@@ -30,8 +32,9 @@ h2 {
 
 #dice-and-cards{
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: 100px;
+  grid-template-columns: repeat(6, 200px);
+  grid-template-rows: 150px;
+  align-items: center;
   border-left: solid 2px black;
   border-right: solid 2px black;
   border-bottom: solid 2px black;
@@ -75,15 +78,47 @@ h2 {
 }
 
 .game-pieces{
-  font-weight: bold
+  font-weight: bold;
+
 }
 
 #whos-turn-display{
   font-size: 30px;
 }
 
+#button-container{
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  margin: 10px 10px 10px 10px;
+}
+
+#P1{
+  color: red;
+  font-size: 15px;
+}
+
+#P2{
+  color: green;
+  font-size: 15px;
+}
+
+#P3{
+  color: purple;
+  font-size: 15px;
+}
+
+#P4{
+  color: yellow;
+  font-size: 15px;
+}
+
 @media (min-width: 768px) {
   #gameboard{
+    height: 500px;
+    width: 1050px;
     display: grid;
     grid-template-columns: repeat(11, 90px);
     grid-template-rows: repeat(5, 90px);
@@ -111,6 +146,26 @@ h2 {
     background-color: red;
     background-image: url("../images/welcome-background.jpeg");
     background-size: cover;
+  }
+
+  #P1{
+    color: red;
+    font-size: 25px;
+  }
+  
+  #P2{
+    color: green;
+    font-size: 25px;
+  }
+  
+  #P3{
+    color: purple;
+    font-size: 25px;
+  }
+  
+  #P4{
+    color: yellow;
+    font-size: 25px;
   }
 
 }
