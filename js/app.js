@@ -100,17 +100,8 @@ players = [playerOne, playerTwo, playerThree, playerFour]
 currentTurn = players[0]
 
 
-
-// playerOneMissTurn = [playerTwo, playerThree, playerFour, playerTwo, playerThree, playerFour, RESUME?]
-// playerTwoMissTurn = [playerThree, playerFour, playerOne, playerThree, playerFour, playerOne, playerTwo, playerThree, playerFour, RESUME?]
-// playerThreeMissTurn = [playerFour, playerOne, playerTwo, playerFour, RESUME?]
-// playerFourMissTurn = [playerOne, playerTwo, playerThree, RESUME?]
-
 /*-------------------------------- Cached Elements ---------------------------*/
-// const playerOne = document.querySelector("#player1")
-// const playerTwo = document.querySelector("#player2") 
-// const playerThree = document.querySelector("#player3")
-// const playerFour = document.querySelector("#player4")
+
 const die = document.querySelector("#dice")
 const diceDisplay = document.querySelector("#dice-display")
 const whosTurnDisplay = document.querySelector("#whos-turn-display")
@@ -119,16 +110,15 @@ const allSquares = document.querySelectorAll(".squares")
 const treasureSquare = document.querySelector(".treasure")
 const welcomeSquare = document.querySelector(".welcome")
 const finishSquare = document.querySelector(".finish")
-// const nearFinishSquares = document.querySelectorAll(".near-finish")
 const annoucementSquare = document.querySelector("#annoucements")
 const cardDisplay = document.querySelector("#card-display")
 const resetButton = document.querySelector("#reset-btn")
-
+const lightDarkBtn = document.querySelector("#light-dark-button")
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
 resetButton.addEventListener("click", init)
-
+// lightDarkBtn.addEventListener("click", toggleLightDark)
 
 
 /*-------------------------------- Functions ---------------------------*/
@@ -207,7 +197,7 @@ function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    let currentCard = cardDeck[0]
+    currentCard = cardDeck[0]
     renderCard()
     currentCard.play()
   } else { render();
@@ -215,7 +205,7 @@ function checkForCardSquare(){
 }
 
 function renderCard(){
-  console.log(currentCard)
+  console.log(cardDeck)
   cardDisplay.innerText = (`${currentCard.name}`)
 }
 
@@ -297,10 +287,26 @@ function randomOtherPlayer() {
     return playerChoice
   }
 }
-
+fireball()
 function fireball(){
   min = Math.ceil(0);
-  max = Math.floor(4);
+  max = Math.floor(3);
   randomPlayerVariable = Math.floor(Math.random() * (max - min + 1) + min)
+  console.log(randomPlayerVariable)
   players[randomPlayerVariable].position - 6
 }
+
+// function toggleLightDark() {
+//   body.className = body.className === "dark" ? "" : "dark"
+// }
+
+// function checkDarkPref() {
+//   if (
+//     window.matchMedia("(prefers-color-scheme:dark)").matches &&
+//     body.className !== "dark"
+//   ) {
+//     toggleLightDark()
+//   }
+// }
+
+// checkDarkPref()
