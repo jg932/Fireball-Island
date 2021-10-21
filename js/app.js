@@ -114,11 +114,12 @@ const annoucementSquare = document.querySelector("#annoucements")
 const cardDisplay = document.querySelector("#card-display")
 const resetButton = document.querySelector("#reset-btn")
 const lightDarkBtn = document.querySelector("#light-dark-button")
+const body = document.querySelector("body")
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
 resetButton.addEventListener("click", init)
-// lightDarkBtn.addEventListener("click", toggleLightDark)
+lightDarkBtn.addEventListener("click", toggleLightDark)
 
 
 /*-------------------------------- Functions ---------------------------*/
@@ -170,7 +171,6 @@ function render() {
 }
 
 
-
 function renderWin(){
   for (let i = 0; i < players.length; i++) {
     const player = players[i]
@@ -194,10 +194,11 @@ function checkForFinish() {
 }
 
 function checkForCardSquare(){
+  cardDisplay.innertext = " dddd"
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    currentCard = cardDeck[0]
+    currentCard = cardDeck[cardIndex]
     renderCard()
     currentCard.play()
   } else { render();
@@ -292,21 +293,20 @@ function fireball(){
   min = Math.ceil(0);
   max = Math.floor(3);
   randomPlayerVariable = Math.floor(Math.random() * (max - min + 1) + min)
-  console.log(randomPlayerVariable)
   players[randomPlayerVariable].position - 6
 }
 
-// function toggleLightDark() {
-//   body.className = body.className === "dark" ? "" : "dark"
-// }
+function toggleLightDark() {
+  body.className = body.className === "dark" ? "" : "dark"
+}
 
-// function checkDarkPref() {
-//   if (
-//     window.matchMedia("(prefers-color-scheme:dark)").matches &&
-//     body.className !== "dark"
-//   ) {
-//     toggleLightDark()
-//   }
-// }
+function checkDarkPref() {
+  if (
+    window.matchMedia("(prefers-color-scheme:dark)").matches &&
+    body.className !== "dark"
+  ) {
+    toggleLightDark()
+  }
+}
 
-// checkDarkPref()
+checkDarkPref()
