@@ -6,6 +6,7 @@ playerChoice = null
 
 
 const cardDeck =[
+  {name: "fireball", play : fireball},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusTwo", play : moveYouTwo},
@@ -206,7 +207,7 @@ function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    let currentCard = cardDeck[cardIndex]
+    let currentCard = cardDeck[0]
     console.log(currentCard)
     currentCard.play()
   } else { render()
@@ -293,11 +294,10 @@ function randomOtherPlayer() {
 }
 
 function fireball(){
-  players[randomAllPlayers()].position - 6
-}
-
-function randomAllPlayers() {
   min = Math.ceil(0);
   max = Math.floor(4);
-  Math.floor(Math.random() * (max - min + 1) + min)
+  randomPlayerVariable = Math.floor(Math.random() * (max - min + 1) + min)
+  players[randomPlayerVariable].position - 6
+  console.log("here")
+  console.log(randomPlayerVariable)
 }

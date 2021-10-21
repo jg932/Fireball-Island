@@ -26,7 +26,6 @@ h2 {
   background-image: url("../images/background-image-vertical.jpeg");
   background-size: cover;
   font-weight: bold;
-
 }
 
 #dice-and-cards{
@@ -81,4 +80,37 @@ h2 {
 
 #whos-turn-display{
   font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  #gameboard{
+    display: grid;
+    grid-template-columns: repeat(11, 90px);
+    grid-template-rows: repeat(5, 90px);
+    border: solid 2px black;
+    justify-content: center;
+    background-image: url("../images/background-image-horizontal.jpeg");
+    background-size: cover;
+    font-weight: bold;
+  }
+  .treasure{
+    background-color: gold;
+    background-image: url("../images/gold-background.jpeg");
+    background-size: cover;
+    font-size: smaller;
+  }
+  
+  .welcome{
+    background-color: purple;
+    background-image: url("../images/beach-background.jpeg");
+    background-size: cover;
+    font-size: smaller;
+  }
+  
+  .finish{
+    background-color: red;
+    background-image: url("../images/welcome-background.jpeg");
+    background-size: cover;
+  }
+
 }
