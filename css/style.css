@@ -1,15 +1,20 @@
 
 body{
-  background-color: yellow;
+  background-color: blue;
   
 }
 
 h1 {
+  font-family: who is hot stroke;
   font-size: 72px;
-  font-family: FlameTime;
   background: -webkit-linear-gradient(rgb(255, 1, 1), rgb(255, 141, 2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 #gameboard{
@@ -18,9 +23,10 @@ h1 {
   grid-template-rows: repeat(11, 50px);
   border: solid 2px black;
   justify-content: center;
-  align-items: stretch;
   background-image: url("../images/background-image-vertical.jpeg");
-  /* background-color: blue; */
+  background-size: cover;
+  font-weight: bold;
+
 }
 
 #dice-and-cards{
@@ -69,3 +75,10 @@ h1 {
   font-size: 30px;
 }
 
+.game-pieces{
+  font-weight: bold
+}
+
+#whos-turn-display{
+  font-size: 30px;
+}
