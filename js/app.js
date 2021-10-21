@@ -6,7 +6,6 @@ playerChoice = null
 
 
 const cardDeck =[
-  {name: "youLoseTurn", play : youLoseTurn},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusOne", play : moveYouOne},
   {name: "youPlusTwo", play : moveYouTwo},
@@ -39,25 +38,25 @@ const cardDeck =[
   {name: "moveOtherBackTwo", play : moveOtherBackTwo},
   {name: "moveOtherBackFour", play : moveOtherBackFour},
   {name: "moveOtherBackFour", play : moveOtherBackFour},
-  {name: "youLoseTurn", play : youLoseTurn},
-  {name: "youLoseTurn", play : youLoseTurn},
-  // {name: "otherLoseTurn", play : turnLoss},
-  // {name: "otherLoseTurn", play : turnLoss},
-  // {name: "otherLoseTurn", play : turnLoss},
-  // {name: "otherLoseTurn", play : turnLoss},
+  {name: "skipNextPlayer", play : skipNextPlayer},
+  {name: "skipNextPlayer", play : skipNextPlayer},
+  {name: "skipNextPlayer", play : skipNextPlayer},
+  {name: "skipNextPlayer", play : skipNextPlayer},
   {name: "takeAnotherTurn", play : takeAnotherTurn},
   {name: "takeAnotherTurn", play : takeAnotherTurn},
   {name: "takeAnotherTurn", play : takeAnotherTurn},
   {name: "goToTheTreasure", play : moveToTreasure},
   {name: "goToTheTreasure", play : moveToTreasure},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
-  // {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
+  {name: "fireball", play : fireball},
 ]
 
 
@@ -156,7 +155,6 @@ function turnUpdate (){
     turnIndex++
   }
   currentTurn = players[turnIndex];
-  // render()
 }
 
 function rollDie(){
@@ -171,7 +169,6 @@ function rollDie(){
 function render() {
   allSquares.forEach((square) => square.innerText = (" "))
   diceDisplay.innerText = rollResult
-  console.log(currentTurn.name)
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerText += ` ${player.name} `})
@@ -209,7 +206,7 @@ function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    let currentCard = cardDeck[0]
+    let currentCard = cardDeck[cardIndex]
     console.log(currentCard)
     currentCard.play()
   } else { render()
@@ -248,7 +245,7 @@ function moveBackFour(){
 }
 
 function moveOtherOne(){
-  players[randomOtherPlayer()].position + 1
+  players[randomOtherPlayer(playerChoice)].position + 1
 }
 
 function moveOtherTwo(){
@@ -279,7 +276,7 @@ function takeAnotherTurn() {
   currentTurn.extraTurn = true
 }
 
-function youLoseTurn() {
+function skipNextPlayer() {
   currentTurn.loseTurn = true
 }
 
@@ -293,4 +290,14 @@ function randomOtherPlayer() {
   } else {
     return playerChoice
   }
+}
+
+function fireball(){
+  players[randomAllPlayers()].position - 6
+}
+
+function randomAllPlayers() {
+  min = Math.ceil(0);
+  max = Math.floor(4);
+  Math.floor(Math.random() * (max - min + 1) + min)
 }
