@@ -147,7 +147,7 @@ button{
 
 #card-display{
   font-size: 30px;
-  color: black;
+  color: orangered;
   margin-left: 20px;
 }
 
@@ -286,7 +286,7 @@ button{
 
   #dice{
     font-size: 50px;
-    color: orange;
+    color: black;
     font-weight: bold;
   }
 
@@ -313,7 +313,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     font-size: 30px;
-    color: black;
+    color: orangered;
     font-weight: bold;
   }
 
