@@ -23,13 +23,13 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - To start the game, roll the dice!
 
 Welcome to the Island Square
-<img src="/images/beach-background.jpeg>
+!(/images/beach-background.jpeg)
 
 Vul-Kar's Treasure Square
-<img src="/images/gold-background.jpeg
+!(/assets/images/gold-background.jpeg)
 
 Escape the Island Square
-<img src="/images/welcome-background.jpeg>
+!(/assests/images/welcome-background.jpeg)
 
 # Future Game Features: there is always space to improve
 - Players will be able to choose their own character images and input their name
