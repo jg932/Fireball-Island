@@ -6,46 +6,45 @@ playerChoice = null
 currentCard = null
 
 const cardDeck =[
-  {name: "Fireball", play : fireball},
-  {name: "You Move Forward One Space", play : moveYouOne},
-  {name: "You Move Forward One Space", play : moveYouOne},
-  {name: "You Move Forward Two Spaces", play : moveYouTwo},
-  {name: "You Move Forward Two Spaces", play : moveYouTwo},
-  {name: "You Move Forward Two Spaces", play : moveYouTwo},
-  {name: "You Move Forward Two Spaces", play : moveYouTwo},
-  {name: "You Move Forward Four Spaces", play : moveYouFour},
-  {name: "You Move Forward Four Spaces", play : moveYouFour},
-  {name: "You Move Back One Space", play : moveBackOne},
-  {name: "You Move Back One Space", play : moveBackOne},
-  {name: "You Move Back Two Spaces", play : moveBackTwo},
-  {name: "You Move Back Two Spaces", play : moveBackTwo},
-  {name: "You Move Back Two Spaces", play : moveBackTwo},
-  {name: "You Move Back Two Spaces", play : moveBackTwo},
-  {name: "You Move Back Four Spaces", play : moveBackFour},
-  {name: "You Move Back Four Spaces", play : moveBackFour},
-  {name: "Move a random player Forward One Space", play : moveOtherOne},
-  {name: "Move a random player Forward One Space", play : moveOtherOne},
-  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
-  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
-  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
-  {name: "Move a random player Forward Two Spaces", play : moveOtherTwo},
-  {name: "Move a random player Forward Four Spaces", play : moveOtherFour},
-  {name: "Move a random player Forward Four Spaces", play : moveOtherFour},
-  {name: "Move a random player Back One Space", play : moveOtherBackOne},
-  {name: "Move a random player Back One Space", play : moveOtherBackOne},
-  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
-  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
-  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
-  {name: "Move a random player Back Two Spaces", play : moveOtherBackTwo},
-  {name: "Move a random player Back Four Spaces", play : moveOtherBackFour},
-  {name: "Move a random player Back Four Spaces", play : moveOtherBackFour},
+  {name: "Move forward 1 space", play : moveYouOne},
+  {name: "Move forward 1 space", play : moveYouOne},
+  {name: "Move forward 2 spaces", play : moveYouTwo},
+  {name: "Move forward 2 spaces", play : moveYouTwo},
+  {name: "Move forward 2 spaces", play : moveYouTwo},
+  {name: "Move forward 2 spaces", play : moveYouTwo},
+  {name: "Move forward 4 spaces", play : moveYouFour},
+  {name: "Move forward 4 spaces", play : moveYouFour},
+  {name: "Move back 1 space", play : moveBackOne},
+  {name: "Move back 1 space", play : moveBackOne},
+  {name: "Move back 2 spaces", play : moveBackTwo},
+  {name: "Move back 2 spaces", play : moveBackTwo},
+  {name: "Move back 2 spaces", play : moveBackTwo},
+  {name: "Move back 2 spaces", play : moveBackTwo},
+  {name: "Move back 4 spaces", play : moveBackFour},
+  {name: "Move back 4 spaces", play : moveBackFour},
+  {name: "A random player moves 1", play : moveOtherOne},
+  {name: "A random player moves 1", play : moveOtherOne},
+  {name: "A random player moves 2", play : moveOtherTwo},
+  {name: "A random player moves 2", play : moveOtherTwo},
+  {name: "A random player moves 2", play : moveOtherTwo},
+  {name: "A random player moves 2", play : moveOtherTwo},
+  {name: "A random player moves 4", play : moveOtherFour},
+  {name: "A random player moves 4", play : moveOtherFour},
+  {name: "A random player moves back 1", play : moveOtherBackOne},
+  {name: "A random player moves back 1", play : moveOtherBackOne},
+  {name: "A random player moves back 2", play : moveOtherBackTwo},
+  {name: "A random player moves back 2", play : moveOtherBackTwo},
+  {name: "A random player moves back 2", play : moveOtherBackTwo},
+  {name: "A random player moves back 2", play : moveOtherBackTwo},
+  {name: "A random player moves back 4", play : moveOtherBackFour},
+  {name: "A random player moves back 4", play : moveOtherBackFour},
   {name: "Skip the next player's turn", play : skipNextPlayer},
   {name: "Skip the next player's turn", play : skipNextPlayer},
   {name: "Skip the next player's turn", play : skipNextPlayer},
   {name: "Skip the next player's turn", play : skipNextPlayer},
-  {name: "Roll again!", play : takeAnotherTurn},
-  {name: "Roll again!", play : takeAnotherTurn},
-  {name: "Roll again!", play : takeAnotherTurn},
+  {name: "Take another turn!", play : takeAnotherTurn},
+  {name: "Take another turn!", play : takeAnotherTurn},
+  {name: "Take another turn!", play : takeAnotherTurn},
   {name: "Move immediately to the Treasure", play : moveToTreasure},
   {name: "Move immediately to the Treasure", play : moveToTreasure},
   {name: "Fireball!", play : fireball},
@@ -60,8 +59,8 @@ const cardDeck =[
   {name: "Fireball!", play : fireball},
 ]
 
-
-
+const fireballSound = new Audio("../sounds/fireball.wav")
+const dieRollSound = new Audio("../sounds/die-roll.wav")
 
 /*-------------------------------- Variables ---------------------------*/
 
@@ -115,6 +114,7 @@ const cardDisplay = document.querySelector("#card-display")
 const resetButton = document.querySelector("#reset-btn")
 const lightDarkBtn = document.querySelector("#light-dark-button")
 const body = document.querySelector("body")
+const header = document.querySelector("#header")
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
@@ -139,8 +139,14 @@ function turnUpdate (){
   if (currentTurn.extraTurn){
     currentTurn.extraTurn = false
   } else if (currentTurn.loseTurn){
-    currentTurn.loseTurn = false;
-    turnIndex++;
+    currentTurn.loseTurn = false
+    if (turnIndex < 2) {
+      turnIndex += 2;
+    } else if (turnIndex === 2){
+      turnIndex = 0
+    } else if (turnIndex === 3){
+      turnIndex = 1
+    }
   } else if (turnIndex >= 3) {
     turnIndex = 0
   } else {
@@ -151,9 +157,11 @@ function turnUpdate (){
 
 function rollDie(){
   rollResult = generateRoll();
+  dieRollSound.play()
   currentTurn.position += rollResult
-  checkForFinish()
+  currentCard = null
   checkForCardSquare()
+  checkForFinish()
   turnUpdate()
   render()
 }
@@ -167,6 +175,7 @@ function render() {
   whosTurnDisplay.innerText = `It is ${currentTurn.name}'s turn!`
   players.forEach(player => {
     document.querySelector(`#sq${player.position}`).innerHTML += ` <span id="${player.name}">${player.name} </span>`})
+  renderCard()
   renderWin()
 }
 
@@ -194,26 +203,29 @@ function checkForFinish() {
 }
 
 function checkForCardSquare(){
-  cardDisplay.innertext = " dddd"
+  cardDisplay.innertext = " "
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
     currentCard = cardDeck[cardIndex]
-    renderCard()
     currentCard.play()
-  } else { render();
+  } else { 
+    render();
   }
 }
 
 function renderCard(){
-  console.log(cardDeck)
-  cardDisplay.innerText = (`${currentCard.name}`)
+  if (currentCard){
+    cardDisplay.innerText = currentCard.name
+  } else { 
+    cardDisplay.innerText = " "
+  }
 }
 
 function cardNumberGenerator() {
   cardIndex = 0
   min = Math.ceil(0);
-  max = Math.floor(51);
+  max = Math.floor(50);
   cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
 }
 
@@ -230,39 +242,42 @@ function moveYouFour(){
 }
 
 function moveBackOne(){
-  currentTurn.position -= 1;
+  currentTurn.position = Math.max(0, currentTurn.position - 1)
 }
 
 function moveBackTwo(){
-  currentTurn.position -= 2;
+  currentTurn.position = Math.max(0, currentTurn.position - 2)
 }
 
 function moveBackFour(){
-  currentTurn.position -= 4;
+  currentTurn.position = Math.max(0, currentTurn.position - 4)
 }
 
 function moveOtherOne(){
-  players[randomOtherPlayer(playerChoice)].position + 1
+  players[randomOtherPlayer()].position += 1
 }
 
 function moveOtherTwo(){
-  players[randomOtherPlayer()].position + 2
+  players[randomOtherPlayer()].position += 2
 }
 
 function moveOtherFour(){
-  players[randomOtherPlayer()].position + 4
+  players[randomOtherPlayer()].position += 4
 }
 
 function moveOtherBackOne(){
-  players[randomOtherPlayer()].position - 1
+  players[randomOtherPlayer()].position -= 1
+  players[playerChoice].position = Math.max(0, players[playerChoice].position)
 }
 
 function moveOtherBackTwo(){
-  players[randomOtherPlayer()].position - 2
+  players[randomOtherPlayer()].position -= 2
+  players[playerChoice].position = Math.max(0, players[playerChoice].position)
 }
 
 function moveOtherBackFour(){
-  players[randomOtherPlayer()].position - 4
+  players[randomOtherPlayer()].position -= 4
+  players[playerChoice].position = Math.max(0, players[playerChoice].position)
 }
 
 function moveToTreasure(){
@@ -281,29 +296,41 @@ function randomOtherPlayer() {
   playerChoice = null
   min = Math.ceil(0);
   max = Math.floor(3);
-  cardIndex = Math.floor(Math.random() * (max - min + 1) + min)
+  playerChoice = Math.floor(Math.random() * (max - min + 1) + min)
   if (playerChoice === currentTurn){
-    randomOtherPlayer()
+    return randomOtherPlayer()
   } else {
     return playerChoice
   }
 }
-fireball()
+
 function fireball(){
   min = Math.ceil(0);
   max = Math.floor(3);
   randomPlayerVariable = Math.floor(Math.random() * (max - min + 1) + min)
   players[randomPlayerVariable].position - 6
+  players[randomPlayerVariable].position = Math.max(0, players[randomPlayerVariable].position)
+  fireballSound.play()
 }
 
 function toggleLightDark() {
-  body.className = body.className === "dark" ? "" : "dark"
+  if (body.className === "dark"){
+    body.classList.remove("dark") 
+    header.classList.remove("dark")
+    resetButton.classList.remove("dark")
+    lightDarkBtn.classList.remove("dark")
+  }else{
+    body.classList.add("dark")
+    header.classList.add("dark")
+    resetButton.classList.add("dark")
+    lightDarkBtn.classList.add("dark")
+  }
 }
 
 function checkDarkPref() {
   if (
     window.matchMedia("(prefers-color-scheme:dark)").matches &&
-    body.className !== "dark"
+    body.class !== "dark"
   ) {
     toggleLightDark()
   }
