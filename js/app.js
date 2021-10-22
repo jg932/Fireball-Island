@@ -6,6 +6,7 @@ playerChoice = null
 currentCard = null
 
 const cardDeck =[
+  {name: "Move forward 4 spaces", play : moveYouFour},
   {name: "Move forward 1 space", play : moveYouOne},
   {name: "Move forward 1 space", play : moveYouOne},
   {name: "Move forward 2 spaces", play : moveYouTwo},
@@ -161,7 +162,7 @@ function turnUpdate (){
 
 function rollDie(){
   rollResult = generateRoll();
-  dieRollSound.play()
+  // dieRollSound.play()
   currentTurn.position += rollResult
   currentCard = null
   checkForCardSquare()
@@ -192,10 +193,6 @@ function renderWin(){
       die.removeEventListener("click", rollDie)
       revealDisplay()
       applauseSound.play()
-
-      // setTimeout(() => { alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`); }, 1000);
-      // die.removeEventListener("click", rollDie)
-      
     }
   } 
 }
@@ -214,9 +211,12 @@ function checkForFinish() {
 
 function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
+  console.log("ekwejhf")
+  console.log(currentTurn)
+  console.log(currentSquare)
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    currentCard = cardDeck[cardIndex]
+    currentCard = cardDeck[0]
     currentCard.play()
   } else { 
     render();
@@ -247,6 +247,8 @@ function moveYouTwo(){
 }
 
 function moveYouFour(){
+  console.log("here")
+  console.log(currentTurn)
   currentTurn.position += 4;
 }
 

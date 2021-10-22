@@ -22,14 +22,16 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - Light mode vs dark mode toggle button is at the bottom of the gameboard.
 - To start the game, roll the dice!
 
-Welcome to the Island Square
-!(https://imgur.com/RxprU9e))
 
-Vul-Kar's Treasure Square
-!(https://imgur.com/undefined)
+!(https://imgur.com/IKyMlL0)
+  Arriving at the Island!
 
-Escape the Island Square
-!(https://imgur.com/undefined)
+!(https://imgur.com/RxprU9e)
+  Vul-Kar's treasure!
+
+!(https://imgur.com/iRq395a)
+  Sailing away a winner!
+
 
 # Future Game Features: there is always space to improve
 - Players will be able to choose their own character images and input their name
