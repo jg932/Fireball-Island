@@ -11,7 +11,7 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 
 
 ## Playing the Game: game play is deceptively straight forward.  
-- Player One rolls first, you roll by clicking on the image of the single red die.  
+- Player One rolls first, you roll by clicking on the "roll me" text.
 - The game will take care of moving your piece to the right square. 
 - Ordinary squares are transparent, card squares are green-ish.
   - The card drawn will be displayed next to the card stack, below the game board, and will be played automatically.
@@ -22,17 +22,14 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - Light mode vs dark mode toggle button is at the bottom of the gameboard.
 - To start the game, roll the dice!
 
-The Roll Die Button/image
-::insert image::
-
 Welcome to the Island Square
-:: insert image::
+<img src="/images/beach-background.jpeg>
 
 Vul-Kar's Treasure Square
-:: insert image::
+<img src="/images/gold-background.jpeg
 
 Escape the Island Square
-:: insert image::
+<img src="/images/welcome-background.jpeg>
 
 # Future Game Features: there is always space to improve
 - Players will be able to choose their own character images and input their name
@@ -50,4 +47,5 @@ Escape the Island Square
 - Javascript
 
 Fire font used via openlicense from 1001freefonts.com
-
+Sailing animation from netanimations.net
+Sound effects used 0 license from creative commons

@@ -61,6 +61,7 @@ const cardDeck =[
 
 const fireballSound = new Audio("../sounds/fireball.wav")
 const dieRollSound = new Audio("../sounds/die-roll.wav")
+const applauseSound = new Audio("../sounds/applause.wav")
 
 /*-------------------------------- Variables ---------------------------*/
 
@@ -115,6 +116,8 @@ const resetButton = document.querySelector("#reset-btn")
 const lightDarkBtn = document.querySelector("#light-dark-button")
 const body = document.querySelector("body")
 const header = document.querySelector("#header")
+const winnerMessage = document.querySelector("#winner-message")
+
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
@@ -126,6 +129,7 @@ lightDarkBtn.addEventListener("click", toggleLightDark)
 init()
 
 function init(){
+  blockDisplay()
   die.addEventListener("click", rollDie)
   players.forEach(player => {
     player.position = 0
@@ -184,8 +188,14 @@ function renderWin(){
   for (let i = 0; i < players.length; i++) {
     const player = players[i]
     if (player.position === 51){
-      setTimeout(() => { alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`); }, 1000);
+      winnerMessage.innerText = `Congratulations ${player.name}! You have claimed the treasure and escaped the island!`;
       die.removeEventListener("click", rollDie)
+      revealDisplay()
+      applauseSound.play()
+
+      // setTimeout(() => { alert(`Congratulations ${player.name}! You have claimed the treasure and escaped the island!`); }, 1000);
+      // die.removeEventListener("click", rollDie)
+      
     }
   } 
 }
@@ -203,7 +213,6 @@ function checkForFinish() {
 }
 
 function checkForCardSquare(){
-  cardDisplay.innertext = " "
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
@@ -337,3 +346,12 @@ function checkDarkPref() {
 }
 
 checkDarkPref()
+
+
+function revealDisplay() {
+  document.getElementById("winner-window").style.display = "block";
+}
+
+function blockDisplay() {
+  document.getElementById("winner-window").style.display = "none";
+}
