@@ -25,16 +25,6 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - To start the game, roll the dice!
 
 
-![beach scene](https://imgur.com/IKyMlL0.jpeg)
-  Arriving at the Island!
-
-![the treasure](https://imgur.com/RxprU9e.jpg)
-  Vul-Kar's treasure!
-
-![sailing ship](https://imgur.com/iRq395a.jpg)
-  Sailing away a winner!
-
-
 # Future Game Features: there is always space to improve
 - Players will be able to choose their own character images and input their name
 - Players will keep an inventory of cards and choose when to play them adding to the depth of gameplay.
