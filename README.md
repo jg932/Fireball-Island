@@ -23,13 +23,13 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - To start the game, roll the dice!
 
 
-!(https://imgur.com/IKyMlL0)
+![beach scene](https://imgur.com/IKyMlL0)
   Arriving at the Island!
 
-!(https://imgur.com/RxprU9e)
+![the treasure](https://imgur.com/RxprU9e)
   Vul-Kar's treasure!
 
-!(https://imgur.com/iRq395a)
+![sailing ship](https://imgur.com/iRq395a)
   Sailing away a winner!
 
 
