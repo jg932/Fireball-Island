@@ -26,10 +26,10 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 ![beach scene](https://imgur.com/IKyMlL0.jpeg)
   Arriving at the Island!
 
-![the treasure](https://imgur.com/RxprU9e)
+![the treasure](https://imgur.com/RxprU9e.jpg)
   Vul-Kar's treasure!
 
-![sailing ship](https://imgur.com/iRq395a)
+![sailing ship](https://imgur.com/iRq395a.jpg)
   Sailing away a winner!
 
 
