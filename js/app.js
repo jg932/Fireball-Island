@@ -6,7 +6,6 @@ playerChoice = null
 currentCard = null
 
 const cardDeck =[
-  {name: "Move forward 4 spaces", play : moveYouFour},
   {name: "Move forward 1 space", play : moveYouOne},
   {name: "Move forward 1 space", play : moveYouOne},
   {name: "Move forward 2 spaces", play : moveYouTwo},
@@ -118,13 +117,14 @@ const lightDarkBtn = document.querySelector("#light-dark-button")
 const body = document.querySelector("body")
 const header = document.querySelector("#header")
 const winnerMessage = document.querySelector("#winner-message")
+const winnerButton = document.querySelector("#winner-button")
 
 
 /*-------------------------------- Event Listeners ---------------------------*/
 die.addEventListener("click", rollDie)
 resetButton.addEventListener("click", init)
 lightDarkBtn.addEventListener("click", toggleLightDark)
-
+winnerButton.addEventListener("click", init)
 
 /*-------------------------------- Functions ---------------------------*/
 init()
@@ -162,9 +162,10 @@ function turnUpdate (){
 
 function rollDie(){
   rollResult = generateRoll();
-  // dieRollSound.play()
+  dieRollSound.play()
   currentTurn.position += rollResult
   currentCard = null
+  checkForFinish()
   checkForCardSquare()
   checkForFinish()
   turnUpdate()
@@ -211,12 +212,9 @@ function checkForFinish() {
 
 function checkForCardSquare(){
   let currentSquare = document.querySelector(`#sq${currentTurn.position}`);
-  console.log("ekwejhf")
-  console.log(currentTurn)
-  console.log(currentSquare)
   if (currentSquare.classList.contains("card-squares")){
     cardNumberGenerator()
-    currentCard = cardDeck[0]
+    currentCard = cardDeck[cardIndex]
     currentCard.play()
   } else { 
     render();
@@ -247,8 +245,6 @@ function moveYouTwo(){
 }
 
 function moveYouFour(){
-  console.log("here")
-  console.log(currentTurn)
   currentTurn.position += 4;
 }
 
