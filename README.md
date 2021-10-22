@@ -1,10 +1,7 @@
 # Unit 1 Project: Fireball Island<br>
 ## a boardgame adaptation
 
-Fireball Island was originally a board game from Milton Bradley released in 1986.  It quickly become a family favorite of ours and our set, 
-which comes in a box two feet by two and a half feet, has been moved from house, to apartment, to house across multiple states. Even though Restoration
-Games rereleased the game, with multiple expansions (and you can buy it right now, highly recommended, go ahead, Google will find it for you!) my
-brother and I live on opposite sides of the country making it difficult to play. So it seemed it was time for a virtual Fireball Island. 
+Fireball Island was originally a board game from Milton Bradley released in 1986.  It quickly become a family favorite of ours and our set, which comes in a box two feet by two and a half feet, has been moved from house, to apartment, to house across multiple states. Even though Restoration Games rereleased the game, with multiple expansions (and you can buy it right now, highly recommended, go ahead, Google will find it for you!) my brother and I live on opposite sides of the country making it difficult to play. So it seemed it was time for a virtual Fireball Island. 
 
 I began this project knowing that this first iteration would stay simple, just getting the beginning of the adventure together. 
 The background is a picture of the original gameboard to bring some of the retro style and excitement to the flat screen.  There
