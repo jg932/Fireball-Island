@@ -40,6 +40,6 @@ he is keeping an eye on everything and, most importantly, he will dispense fireb
 - CSS
 - Javascript
 
-Fire font used via openlicense from 1001freefonts.com
-Sailing animation from netanimations.net
-Sound effects used 0 license from creative commons
+Fire font used via openlicense from 1001freefonts.com<br>
+Sailing animation from netanimations.net<br>
+Sound effects used 0 license from creative commons<br>

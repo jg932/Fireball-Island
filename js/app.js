@@ -59,15 +59,17 @@ const cardDeck =[
   {name: "Fireball!", play : fireball},
 ]
 
+/*-------------------------------- Sound Qs ------------*/
+
 const fireballSound = new Audio("../sounds/fireball.wav")
 const dieRollSound = new Audio("../sounds/die-roll.wav")
 const applauseSound = new Audio("../sounds/applause.wav")
 
-/*-------------------------------- Variables ---------------------------*/
+/*-------------------------------- Variables ----------------------*/
 
 rollResult = null
 
-
+//-----Player Objects
 playerOne = {
   position : 0,
   name : "P1",
@@ -100,7 +102,7 @@ players = [playerOne, playerTwo, playerThree, playerFour]
 currentTurn = players[0]
 
 
-/*-------------------------------- Cached Elements ---------------------------*/
+/*-------------------------------- Cached Elements ------*/
 
 const die = document.querySelector("#dice")
 const diceDisplay = document.querySelector("#dice-display")
@@ -120,13 +122,13 @@ const winnerMessage = document.querySelector("#winner-message")
 const winnerButton = document.querySelector("#winner-button")
 
 
-/*-------------------------------- Event Listeners ---------------------------*/
+/*-------------------------------- Event Listeners ----------*/
 die.addEventListener("click", rollDie)
 resetButton.addEventListener("click", init)
 lightDarkBtn.addEventListener("click", toggleLightDark)
 winnerButton.addEventListener("click", init)
 
-/*-------------------------------- Functions ---------------------------*/
+/*-------------------------------- Functions -------------*/
 init()
 
 function init(){
