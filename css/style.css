@@ -230,8 +230,9 @@ button{
   }
 
   #P1{
-    color: red;
+    /* color: red;
     font-size: 25px;
+     */
   }
   
   #P2{
@@ -305,9 +306,9 @@ button{
     border-bottom: solid 2px black;
   }
 
-#dice{
-  margin-left: 10px;
-}
+  #dice{
+    margin-left: 10px;
+  }
 
   #card-display{
     display: flex;
@@ -317,16 +318,11 @@ button{
     font-weight: bold;
   }
 
-#winner-message{
-  margin-left: 100px;
-}
+  #winner-message{
+    margin-left: 100px;
+  }
 
 }
-
-
-
-
-
 
 
 

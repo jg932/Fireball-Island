@@ -72,28 +72,28 @@ rollResult = null
 //-----Player Objects
 playerOne = {
   position : 0,
-  name : "P1",
+  name : "🚗",
   extraTurn : false,
   loseTurn : false,
 }
 
 playerTwo = {
   position : 0,
-  name : "P2",
+  name : "🎃",
   extraTurn: false,
   loseTurn : false,
 }
 
 playerThree = {
   position : 0,
-  name : "P3",
+  name : "🎩",
   extraTurn: false,
   loseTurn : false,
 }
 
 playerFour = {
   position : 0,
-  name : "P4",
+  name : "🚀",
   extraTurn: false, 
   loseTurn : false,
 }
