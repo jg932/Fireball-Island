@@ -8,7 +8,9 @@
 }
 
 body{
-  /* background-image: url("../images/map3.jpeg"); */
+  background-image: url("../images/closeup.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: rgb(47, 47, 250);
 }
 
