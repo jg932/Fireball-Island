@@ -203,11 +203,12 @@ button{
   #gameboard{
     height: 500px;
     width: 1050px;
+    margin: 0 0 0 5%;
     display: grid;
     grid-template-columns: repeat(11, 90px);
     grid-template-rows: repeat(5, 90px);
     border: solid 2px black;
-    justify-content: center;
+    /* justify-content: center; */
     background-image: url("../images/background-image-horizontal.jpeg");
     background-size: cover;
     font-weight: bold;
@@ -256,13 +257,13 @@ button{
 
   #dice-and-cards{
     width: 1100px;
-    margin: 0 20% 0 20%;
+    margin: 0 0 0 5%;
   }
 
   #button-container{
     display: flex;
     width: 1100px;
-    margin: 0 20% 0 20%;
+    margin: 0 0 0 5%;
   }
 
   #header-container{
@@ -272,7 +273,7 @@ button{
     justify-items: center;
     align-content: center;
     justify-content: center;
-    margin: 0 20% 0 20%;
+    margin: 0 0 0 5%;
     
   }
   
