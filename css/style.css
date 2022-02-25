@@ -35,7 +35,8 @@ h2 {
 
 #tagline{
   margin-left: 40px;
-  
+  color: red;
+  font-weight: bold;
 }
 
 #whos-turn-display{
@@ -100,12 +101,13 @@ h2 {
 }
 
 #dice-display{
+  color: white;
   font-size: 30px;
   margin-left: 10px;
 }
 
 #dice{
-  color: black;
+  color: orangered;
   font-size: 30px;
   font-weight: bold;
   margin-left: 10px;
@@ -289,12 +291,13 @@ button{
 
   #dice{
     font-size: 50px;
-    color: black;
+    color: orangered;
     font-weight: bold;
   }
 
   #dice-display{
     font-size: 50px;
+    color: orangered;
   }
 
   #dice-and-cards{
