@@ -165,6 +165,9 @@ function turnUpdate (){
 function rollDie(){
   rollResult = generateRoll();
   dieRollSound.play()
+  //add chooseDirection function adds pop up window
+  //add event listener for choose
+  //edit below line to simply be += rollResult for moving forward vs -= rollResult for moving backwards
   currentTurn.position += rollResult
   currentCard = null
   checkForFinish()
@@ -207,7 +210,7 @@ function generateRoll(){
 }
 
 function chooseMoveDirection(){
-  
+
 }
 
 function checkForFinish() {
