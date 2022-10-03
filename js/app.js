@@ -206,6 +206,10 @@ function generateRoll(){
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+function chooseMoveDirection(){
+  
+}
+
 function checkForFinish() {
   if (currentTurn.position > 51){
     currentTurn.position = 51
