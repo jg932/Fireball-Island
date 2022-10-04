@@ -211,8 +211,11 @@ function generateRoll(){
 }
 
 function chooseMoveDirection(){
-
+    document.getElementById("forward-backward-window").style.display = "block";
 }
+  function blockDisplay() {
+    document.getElementById("winner-window").style.display = "none";
+  }
 
 function checkForFinish() {
   if (currentTurn.position > 51){
